@@ -1,0 +1,4 @@
+/target/
+/lib/
+/nb-configuration.xml
+/src/main/webapp/WEB-INF/applicationContext.xml
