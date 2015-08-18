@@ -11,5 +11,6 @@
         <property name="hibernate.connection.password">always91</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.starr.smartbuilds.entity.Item"/>
   </session-factory>
 </hibernate-configuration>

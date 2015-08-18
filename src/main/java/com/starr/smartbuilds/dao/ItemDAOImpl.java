@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.starr.smartbuilds.dao;
+
+import com.starr.smartbuilds.entity.Item;
+import com.starr.smartbuilds.util.HibernateUtil;
+import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+/**
+ *
+ * @author Tanya
+ */
+@Repository
+public class ItemDAOImpl implements ItemDAO {
+
+    private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
+    @Override
+    public void addItem(Item item) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction trans = session.beginTransaction();
+        session.save(item);
+        trans.commit();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Item> listItems() {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction trans = session.beginTransaction();
+        List<Item> items = session.createQuery("from Item").list();
+        trans.commit();
+        return items;
+    }
+
+    @Override
+    public void removeItem(Item item) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction trans = session.beginTransaction();
+        session.delete(item);
+        trans.commit();
+    }
+
+    @Override
+    public Item getItem(Integer id) {
+        return (Item) sessionFactory.getCurrentSession().get(Item.class, id);
+    }
+
+}
