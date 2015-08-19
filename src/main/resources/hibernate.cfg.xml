@@ -12,5 +12,6 @@
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hbm2ddl.auto">update</property>
         <mapping class="com.starr.smartbuilds.entity.Item"/>
+        <mapping class="com.starr.smartbuilds.entity.Tag"/>
   </session-factory>
 </hibernate-configuration>

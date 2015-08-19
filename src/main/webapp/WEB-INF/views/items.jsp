@@ -32,7 +32,11 @@
                     <td><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/${item.id}.png"></td>
                     <td>${item.plaintext}</td>
                     <td>${item.description}</td>
-                    <td>${item.tags}</td>
+                    <td>
+                        <c:forEach items="${item.tags}" var="tag">
+                            ${tag.name}<br>
+                        </c:forEach>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

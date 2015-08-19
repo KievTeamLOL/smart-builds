@@ -6,23 +6,22 @@
 package com.starr.smartbuilds.dao;
 
 import com.starr.smartbuilds.entity.Item;
+import com.starr.smartbuilds.entity.Tag;
 import java.util.List;
 
 /**
  *
  * @author Tanya
  */
-public interface ItemDAO {
+public interface TagDAO {
 
-    public void addItem(Item item);
+    public void addTag(Tag tag);
 
-    public List<Item> listItems();
+    public List<Tag> listTags();
 
-    public void removeItem(Item item);
+    public void removeTag(Tag tag);
 
-    public Item getItem(Integer id);
+    public Tag getTag(Integer id);
     
-    public void updateItem(Item  item);
+    public void updateTag(Tag  tag);
 }
-
-

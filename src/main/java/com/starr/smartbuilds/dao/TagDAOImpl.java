@@ -6,12 +6,12 @@
 package com.starr.smartbuilds.dao;
 
 import com.starr.smartbuilds.entity.Item;
+import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -19,46 +19,45 @@ import org.springframework.stereotype.Repository;
  * @author Tanya
  */
 @Repository
-public class ItemDAOImpl implements ItemDAO {
-
+public class TagDAOImpl implements TagDAO {
     private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
     @Override
-    public void addItem(Item item) {
+    public void addTag(Tag tag) {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        session.save(item);
+        session.save(tag);
         trans.commit();
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Item> listItems() {
+    public List<Tag> listTags() {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        List<Item> items = session.createQuery("from Item").list();
+        List<Tag> tags = session.createQuery("from Tag").list();
         trans.commit();
-        return items;
+        return tags;
     }
 
     @Override
-    public void removeItem(Item item) {
+    public void removeTag(Tag tag) {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        session.delete(item);
+        session.delete(tag);
         trans.commit();
     }
 
     @Override
-    public Item getItem(Integer id) {
-        return (Item) sessionFactory.getCurrentSession().get(Item.class, id);
+    public Tag getTag(Integer id) {
+        return (Tag) sessionFactory.getCurrentSession().get(Tag.class, id);
     }
-
+    
     @Override
-    public void updateItem(Item item) {
+    public void updateTag(Tag tag) {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        session.update(item);
+        session.update(tag);
         trans.commit();
     }
 
