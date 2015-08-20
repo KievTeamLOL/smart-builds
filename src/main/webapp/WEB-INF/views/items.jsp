@@ -29,7 +29,7 @@
                 <tr align="center">
                     <td>${item.id}</td>
                     <th>${item.name}</th>
-                    <td><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/${item.id}.png"></td>
+                    <td><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/${item.id}.png" title="${item.name}"></td>
                     <td>${item.plaintext}</td>
                     <td>${item.description}</td>
                     <td>
