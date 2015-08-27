@@ -15,6 +15,7 @@ import com.starr.smartbuilds.util.Constants;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.List;
@@ -166,5 +167,30 @@ public class DataService {
          }
     }
     
+    public void getSummonerIdDataFromRiotAPI(String region, String summonerName) throws MalformedURLException, IOException{
+        String line;
+        String result = "";
+        URL url = new URL("https://"+region+".api.pvp.net/api/lol/"+region+"euw/v1.4/summoner/by-name/"+summonerName+"?api_key=" + Constants.API_KEY);
+        //Get connection
+        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+        conn.setDoOutput(true);
+        conn.setRequestMethod("GET");
+
+        int responseCode = conn.getResponseCode();
+        System.out.println("resp:" + responseCode);
+        System.out.println("resp msg:" + conn.getResponseMessage());
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        System.out.println("BUFFER----");
+        while ((line = br.readLine()) != null) {
+            result += line;
+        }
+
+        conn.disconnect();
+        getSummonerIdFromData(result);
+    }
     
+    private void getSummonerIdFromData(String data){
+        
+    }
 }

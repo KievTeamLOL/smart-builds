@@ -44,7 +44,8 @@ public class ItemsController {
     @Autowired
     private TagDAO tagDAO;
     
-    private DataService dataService = new DataService();
+    @Autowired
+    private DataService dataService;
 
     @RequestMapping(method = {RequestMethod.GET})
     public String getItems(Model model) throws IOException, ParseException {

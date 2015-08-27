@@ -28,6 +28,7 @@
                 <prop key="items">itemsController</prop>
                 <prop key="add">addController</prop>
                 <prop key="champions">champsController</prop>
+                <prop key="reg">regController</prop>
             </props>
         </property>
     </bean>
@@ -52,5 +53,8 @@
      
      <bean name="champsController"
           class="com.starr.smartbuilds.controller.ChampsController"/>
+     
+      <bean name="regController"
+          class="com.starr.smartbuilds.controller.RegController"/>
 
 </beans>

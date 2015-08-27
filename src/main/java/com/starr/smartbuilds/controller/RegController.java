@@ -6,17 +6,13 @@
 package com.starr.smartbuilds.controller;
 
 import com.starr.smartbuilds.dao.ChampionDAO;
-import com.starr.smartbuilds.dao.ItemDAO;
-import com.starr.smartbuilds.dao.TagDAO;
-import com.starr.smartbuilds.entity.Item;
-import com.starr.smartbuilds.entity.Tag;
+import com.starr.smartbuilds.dao.UserDAO;
+import com.starr.smartbuilds.entity.User;
 import com.starr.smartbuilds.service.DataService;
-import java.io.IOException;
-import java.util.List;
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,28 +21,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
-public class AddController {
-     @Autowired
-    private ItemDAO itemDAO;
-    
+public class RegController {
+
     @Autowired
-    private TagDAO tagDAO;
-    
+    private UserDAO userDAO;
+
     @Autowired
     private ChampionDAO championDAO;
-    
+
     @Autowired
     private DataService dataService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getItems(Model model) throws IOException, ParseException {
+    public String getAuth(Model model) {
+        model.addAttribute("user", new User());
+        return "reg";
+    }
 
-        List<Tag> tags = tagDAO.listTags();
-        if (tags.size() == 0) {
-            dataService.getItemsDataFromRiotAPI();
-            tags = tagDAO.listTags();
-        }
-        model.addAttribute("tags", tags);
-        return "add";
+    @RequestMapping(method = {RequestMethod.POST})
+    public String addUser(@ModelAttribute("user") User user, Model model) {
+        user.setSummonerID(4L);
+        user.setTier("silver");
+        userDAO.addUser(user);
+        model.addAttribute("result", "done:");
+        return "reg";
     }
 }
