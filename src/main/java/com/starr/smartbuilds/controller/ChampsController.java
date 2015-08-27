@@ -8,7 +8,7 @@ package com.starr.smartbuilds.controller;
 import com.starr.smartbuilds.dao.ChampionDAO;
 import com.starr.smartbuilds.dao.ItemDAO;
 import com.starr.smartbuilds.dao.TagDAO;
-import com.starr.smartbuilds.entity.Item;
+import com.starr.smartbuilds.entity.Champion;
 import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.service.DataService;
 import java.io.IOException;
@@ -25,27 +25,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
-public class AddController {
-     @Autowired
-    private ItemDAO itemDAO;
-    
-    @Autowired
-    private TagDAO tagDAO;
-    
+public class ChampsController {
+      
     @Autowired
     private ChampionDAO championDAO;
     
-    private DataService dataService = new DataService();
+    @Autowired
+    private DataService dataService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getItems(Model model) throws IOException, ParseException {
+    public String getChampions(Model model) throws IOException, ParseException {
 
-        List<Tag> tags = tagDAO.listTags();
-        if (tags.size() == 0) {
-            dataService.getItemsDataFromRiotAPI();
-            tags = tagDAO.listTags();
+        List<Champion> champions = championDAO.listChampions();
+        if (champions.isEmpty()) {
+            dataService.getChampionsDataFromRiotAPI();
+            champions = championDAO.listChampions();
         }
-        model.addAttribute("tags", tags);
-        return "add";
+        model.addAttribute("champions", champions);
+        return "champions";
     }
 }
+
+

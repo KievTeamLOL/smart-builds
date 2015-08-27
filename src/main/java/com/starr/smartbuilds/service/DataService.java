@@ -5,8 +5,10 @@
  */
 package com.starr.smartbuilds.service;
 
+import com.starr.smartbuilds.dao.ChampionDAO;
 import com.starr.smartbuilds.dao.ItemDAO;
 import com.starr.smartbuilds.dao.TagDAO;
+import com.starr.smartbuilds.entity.Champion;
 import com.starr.smartbuilds.entity.Item;
 import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.util.Constants;
@@ -23,11 +25,13 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Tanya
  */
+@Service
 public class DataService {
     
     @Autowired
@@ -36,8 +40,11 @@ public class DataService {
     @Autowired
     private TagDAO tagDAO;
     
+    @Autowired
+    private ChampionDAO championDAO;
     
-       public void getDataFromRiotAPI() throws IOException, ParseException {
+    
+       public void getItemsDataFromRiotAPI() throws IOException, ParseException {
         String line;
         String result = "";
         URL url = new URL("https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item?itemListData=tags&api_key=" + Constants.API_KEY);
@@ -120,4 +127,44 @@ public class DataService {
             itemDAO.updateItem(item);
         }
     }
+    
+     public void getChampionsDataFromRiotAPI() throws IOException, ParseException {
+        String line;
+        String result = "";
+        URL url = new URL("https://global.api.pvp.net/api/lol/static-data/euw/v1.2/champion?api_key=" + Constants.API_KEY);
+        //Get connection
+        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+        conn.setDoOutput(true);
+        conn.setRequestMethod("GET");
+
+        int responseCode = conn.getResponseCode();
+        System.out.println("resp:" + responseCode);
+        System.out.println("resp msg:" + conn.getResponseMessage());
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        System.out.println("BUFFER----");
+        while ((line = br.readLine()) != null) {
+            result += line;
+        }
+
+        conn.disconnect();
+        getChampionsFromData(result);
+    }
+
+    private void getChampionsFromData(String data) throws ParseException {
+        JSONParser parser = new JSONParser();
+        JSONObject json = (JSONObject) parser.parse(data);
+        JSONObject json_data = (JSONObject) json.get("data");
+         for (Object arr : json_data.values()) {
+            JSONObject json_arr = (JSONObject) arr;
+            Long id = (Long) json_arr.get("id");
+            String name = (String) json_arr.get("name");
+            Champion champ = new Champion();
+            champ.setId(id);
+            champ.setName(name);
+            championDAO.addChampion(champ);
+         }
+    }
+    
+    
 }

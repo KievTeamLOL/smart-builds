@@ -51,7 +51,7 @@ public class ItemsController {
 
         List<Item> items = itemDAO.listItems();
         if (items.size() == 0) {
-            dataService.getDataFromRiotAPI();
+            dataService.getItemsDataFromRiotAPI();
             items = itemDAO.listItems();
         }
         System.out.println("lal= " + items.size());

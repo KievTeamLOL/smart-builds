@@ -26,6 +26,8 @@
             <props>
                 <prop key="/">indexController</prop>
                 <prop key="items">itemsController</prop>
+                <prop key="add">addController</prop>
+                <prop key="champions">champsController</prop>
             </props>
         </property>
     </bean>
@@ -44,5 +46,11 @@
     
      <bean name="itemsController"
           class="com.starr.smartbuilds.controller.ItemsController"/>
+     
+     <bean name="addController"
+          class="com.starr.smartbuilds.controller.AddController"/>
+     
+     <bean name="champsController"
+          class="com.starr.smartbuilds.controller.ChampsController"/>
 
 </beans>

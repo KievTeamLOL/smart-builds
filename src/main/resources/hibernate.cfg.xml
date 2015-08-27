@@ -13,5 +13,6 @@
         <property name="hbm2ddl.auto">update</property>
         <mapping class="com.starr.smartbuilds.entity.Item"/>
         <mapping class="com.starr.smartbuilds.entity.Tag"/>
+          <mapping class="com.starr.smartbuilds.entity.Champion"/>
   </session-factory>
 </hibernate-configuration>
