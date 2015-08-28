@@ -9,6 +9,10 @@ import com.starr.smartbuilds.dao.ChampionDAO;
 import com.starr.smartbuilds.dao.UserDAO;
 import com.starr.smartbuilds.entity.User;
 import com.starr.smartbuilds.service.DataService;
+import com.starr.smartbuilds.service.RegService;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +34,7 @@ public class RegController {
     private ChampionDAO championDAO;
 
     @Autowired
-    private DataService dataService;
+    private RegService regService;
 
     @RequestMapping(method = {RequestMethod.GET})
     public String getAuth(Model model) {
@@ -39,11 +43,9 @@ public class RegController {
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public String addUser(@ModelAttribute("user") User user, Model model) {
-        user.setSummonerID(4L);
-        user.setTier("silver");
-        userDAO.addUser(user);
-        model.addAttribute("result", "done:");
+    public String addUser(@ModelAttribute("user") User user, Model model) throws IOException, MalformedURLException, ParseException {
+        String regMsg = regService.registerUser(user);
+        model.addAttribute("result", regMsg);
         return "reg";
     }
 }
