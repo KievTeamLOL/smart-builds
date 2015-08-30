@@ -29,6 +29,8 @@
                 <prop key="add">addController</prop>
                 <prop key="champions">champsController</prop>
                 <prop key="reg">regController</prop>
+                <prop key="auth">authController</prop>
+                <prop key="facebook">facebookController</prop>
             </props>
         </property>
     </bean>
@@ -45,16 +47,22 @@
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
     
-     <bean name="itemsController"
-          class="com.starr.smartbuilds.controller.ItemsController"/>
+    <bean name="itemsController"
+           class="com.starr.smartbuilds.controller.ItemsController"/>
      
-     <bean name="addController"
-          class="com.starr.smartbuilds.controller.AddController"/>
+    <bean name="addController"
+           class="com.starr.smartbuilds.controller.AddController"/>
      
-     <bean name="champsController"
-          class="com.starr.smartbuilds.controller.ChampsController"/>
+    <bean name="champsController"
+           class="com.starr.smartbuilds.controller.ChampsController"/>
      
-      <bean name="regController"
-          class="com.starr.smartbuilds.controller.RegController"/>
+    <bean name="regController"
+            class="com.starr.smartbuilds.controller.RegController"/>
+      
+    <bean name="authController"
+             class="com.starr.smartbuilds.controller.AuthController"/>
+       
+    <bean name="facebookController"
+             class="com.starr.smartbuilds.controller.FacebookController"/>
 
 </beans>

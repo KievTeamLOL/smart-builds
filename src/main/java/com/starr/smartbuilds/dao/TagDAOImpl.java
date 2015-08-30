@@ -12,6 +12,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class TagDAOImpl implements TagDAO {
+
     private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
     @Override
@@ -35,7 +37,9 @@ public class TagDAOImpl implements TagDAO {
     public List<Tag> listTags() {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        List<Tag> tags = session.createQuery("from Tag").list();
+        List<Tag> tags = session.createCriteria(Tag.class)
+                .addOrder(Order.asc("name"))
+                .list();
         trans.commit();
         return tags;
     }
@@ -52,7 +56,7 @@ public class TagDAOImpl implements TagDAO {
     public Tag getTag(Integer id) {
         return (Tag) sessionFactory.getCurrentSession().get(Tag.class, id);
     }
-    
+
     @Override
     public void updateTag(Tag tag) {
         Session session = sessionFactory.getCurrentSession();

@@ -8,9 +8,11 @@ package com.starr.smartbuilds.dao;
 import com.starr.smartbuilds.entity.User;
 import com.starr.smartbuilds.util.HibernateUtil;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -49,7 +51,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUser(Integer id) {
+    public User getUserById(Integer id) {
         return (User) sessionFactory.getCurrentSession().get(User.class, id);
     }
 
@@ -59,6 +61,12 @@ public class UserDAOImpl implements UserDAO {
         Transaction trans = session.beginTransaction();
         session.update(user);
         trans.commit();
+    }
+
+    public User getUserByEmail(String email) {
+        Criteria userCrit = sessionFactory.getCurrentSession().createCriteria(User.class).add(Restrictions.eq("email",email));
+        User user = (User) userCrit.uniqueResult();
+        return user;
     }
 
 }

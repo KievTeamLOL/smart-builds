@@ -6,11 +6,13 @@
 package com.starr.smartbuilds.dao;
 
 import com.starr.smartbuilds.entity.Champion;
+import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -35,7 +37,9 @@ public class ChampionDAOImpl implements ChampionDAO{
     public List<Champion> listChampions() {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        List<Champion> champions = session.createQuery("from Champion").list();
+        List<Champion> champions = session.createCriteria(Champion.class)
+                .addOrder(Order.asc("name"))
+                .list();
         trans.commit();
         return champions;
     }

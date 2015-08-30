@@ -5,14 +5,10 @@
  */
 package com.starr.smartbuilds.controller;
 
-import com.starr.smartbuilds.dao.ChampionDAO;
-import com.starr.smartbuilds.dao.UserDAO;
-import com.starr.smartbuilds.entity.User;
-import com.starr.smartbuilds.service.DataService;
+import com.starr.smartbuilds.service.AuthService;
+import com.starr.smartbuilds.service.FileService;
 import com.starr.smartbuilds.service.RegService;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,21 +21,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
-public class RegController {
-
+public class FacebookController {
+  
     @Autowired
     private RegService regService;
 
     @RequestMapping(method = {RequestMethod.GET})
     public String getAuth(Model model) {
-        model.addAttribute("user", new User());
-        return "reg";
+        model.addAttribute("file", new FileService());
+        return "facebook";
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public String addUser(@ModelAttribute("user") User user, Model model) throws IOException, ParseException {
-        String regMsg = regService.registerUser(user);
-        model.addAttribute("result", regMsg);
-        return "reg";
+    public String addUser(@ModelAttribute("file") FileService file, Model model) throws IOException {
+        String result = file.writeFile();  
+        model.addAttribute("result", result);
+        return "facebook";
     }
 }

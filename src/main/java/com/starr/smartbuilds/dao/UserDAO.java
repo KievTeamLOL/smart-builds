@@ -20,7 +20,9 @@ public interface UserDAO {
 
     public void removeUser(User user);
 
-    public User getUser(Integer id);
+    public User getUserById(Integer id);
+    
+    public User getUserByEmail(String email);
     
     public void updateUser(User  user);
 }

@@ -6,11 +6,13 @@
 package com.starr.smartbuilds.dao;
 
 import com.starr.smartbuilds.entity.Item;
+import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -36,7 +38,9 @@ public class ItemDAOImpl implements ItemDAO {
     public List<Item> listItems() {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        List<Item> items = session.createQuery("from Item").list();
+        List<Item> items = session.createCriteria(Item.class)
+                .addOrder(Order.asc("name"))
+                .list();
         trans.commit();
         return items;
     }
