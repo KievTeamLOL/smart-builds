@@ -13,7 +13,7 @@
     <head>
         <title>Create build</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<c:url value='res/styles/style.css'/>">
+        <link rel="stylesheet" type="text/css" href="res/styles/style.css">
         <script type="text/javascript" src="res/js/jquery-2.1.1.min.js"></script>
     </head>
     <body>
@@ -23,7 +23,7 @@
                 <div style="display: table-row;">
                     <div class="inheader">
                         <div class="sitename_block">
-                            <a href="/" style="text-decoration: none; color: #fff;"><img src="res/img/genius.png" style="width: 186px; height: 128px;  text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
+                            <a href="/" style="text-decoration: none; color: #fff;"><img src="res/img/genius1.png" style="width: 186px; height: 128px;  text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
                         </div>
                         <div class="statusbar">
                             <div class="notifbar">

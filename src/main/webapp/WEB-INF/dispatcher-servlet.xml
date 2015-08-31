@@ -15,9 +15,7 @@
     <context:annotation-config/>
     <mvc:annotation-driven />
     <mvc:resources mapping="/res/**" location="/res/"/>
-    
-    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
-    
+
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must
@@ -31,8 +29,5 @@
     <!--
     The index controller.
     -->
-    <bean name="indexController"
-          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
-          p:viewName="index" />
 
 </beans>

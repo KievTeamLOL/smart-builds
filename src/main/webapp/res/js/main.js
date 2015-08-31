@@ -86,3 +86,4 @@ $("#guide_name").blur(function () {
 $(".hideEmail").click(function () {
     $(".hideEmail").html("coshe@ukr.net");
 });
+

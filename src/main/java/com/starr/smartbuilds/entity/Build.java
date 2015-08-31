@@ -43,6 +43,12 @@ public class Build implements Serializable {
     @Column(name = "type")
     private String type;
     
+    @Column(name = "season")
+    private String season;
+    
+    @Column(name = "patch")
+    private String patch;
+    
     @Column(name = "blocks", columnDefinition = "text")
     private String blocks;
 
@@ -122,5 +128,22 @@ public class Build implements Serializable {
         this.blocks = blocks;
     }
 
+    public String getSeason() {
+        return season;
+    }
+
+    public void setSeason(String season) {
+        this.season = season;
+    }
+
+    public String getPatch() {
+        return patch;
+    }
+
+    public void setPatch(String patch) {
+        this.patch = patch;
+    }
+
+    
     
 }

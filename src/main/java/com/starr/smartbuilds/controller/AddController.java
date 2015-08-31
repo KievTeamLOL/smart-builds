@@ -13,9 +13,12 @@ import com.starr.smartbuilds.entity.Build;
 import com.starr.smartbuilds.entity.Category;
 import com.starr.smartbuilds.entity.Champion;
 import com.starr.smartbuilds.entity.Tag;
+import com.starr.smartbuilds.entity.User;
 import com.starr.smartbuilds.service.DataService;
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,7 +52,7 @@ public class AddController {
     private DataService dataService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getItems(Model model) throws IOException, ParseException {
+    public String getBuilder(Model model) throws IOException, ParseException {
         Build build = new Build();
         build.setName("text");
         model.addAttribute("build", build);
@@ -59,11 +62,16 @@ public class AddController {
         model.addAttribute("tags", tags);
         List<Champion> champions = championDAO.listChampions();
         model.addAttribute("champions", champions);
-        return "add_build";
+        return "add_build"; 
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processSubmit(@ModelAttribute("build") Build build,BindingResult result, Model model) {
+    public String saveBuild(@ModelAttribute("build") Build build, BindingResult result, Model model, HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("user"); 
+        build.setUser(user);
+        build.setSeason("Season V");
+        build.setPatch("5.16.1");
         System.out.println("------BUILD--------");
         System.out.println("Name:"+build.getName());
         System.out.println("Map:"+build.getMap());
@@ -71,7 +79,7 @@ public class AddController {
         System.out.println("Lane"+build.getLane());
         System.out.println("Type"+build.getType()); 
         System.out.println("BLOCKS"+build.getBlocks());
-         List<Category> categories = categoryDAO.listCategories();
+        List<Category> categories = categoryDAO.listCategories();
         model.addAttribute("categories", categories);
         List<Tag> tags = tagDAO.listTags();
         model.addAttribute("tags", tags);

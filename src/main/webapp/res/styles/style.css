@@ -25,7 +25,7 @@ input:focus, select:focus, option:focus {outline:none;}
 .search_form {display: block; float: left;}
 .search_input {display: none; float: left; opacity: 0; position: absolute; right: 20px;}
 .statusbar {display: table-cell; height: 60px; width: 100%; padding: 5px 0 5px 0;}
-.sitename {width: 200px; color: #fff; font-family: 'Open Sans Condensed', cursive;}
+.sitename {width: 250px; color: #fff; font-family: 'Open Sans Condensed', cursive;}
 .notifbar {font-size: 16px; text-align: right; text-transform: uppercase; color: #fff;position: relative; }
 .notifbar a {color: #fff; transition: 0.2s; text-decoration: none; font-family: 'Open Sans Condensed', sans-serif;}
 .notifbar a:hover {color: #000;}
@@ -153,3 +153,30 @@ select option {background-color: #c68811; color: #222;}
 .footer p.reachus:before{ background-position: 0 -89px;}
 .footer p.clients:before{ background-position: 0 -69px;}
 /*end of footer*/
+
+/*main page*/
+.champions {width: 869px; float: left;}
+.un_cmp {display: inline-block; height: 75px; width: 75px; background-size: cover; border: 3px inset #ccc; margin: 20px;}
+.popular {width: 351px; float: left; padding-top: 20px;}
+.popular_name {border-color: #f6c653 #bd6a23 #b6631f #e8ab4a; background-color: #d79922; border-width: 3px; border-style: solid; padding: 5px; text-align: center; text-transform: uppercase; font-size: 20px; color: #fff;}
+.popular_cont {border-color: #f6c653 #bd6a23 #b6631f #e8ab4a; background-color: #d79922; border-width: 3px; border-style: solid; border-top: 0; background-color: #cdcdcd;}
+.popular_build {border-spacing: 0; border-collapse: collapse; height: 50px; border-bottom: 3px solid #777;}
+.pop_bld_img {height: 50px; width: 50px; background-size: cover; padding: 0;}
+.pop_bld_name {width: 295px; height: 50px; font-size: 16px; color: #000;}
+.pop_bld_name_n {height: 30px; width: 285px; line-height: 30px; font-size: 19px; color: #000; padding-left: 10px;}
+.pop_bld_name_n a {color: #666;}
+.pop_bld_name_n a:hover {color: #d79922;}
+.pop_bld_name_a {height: 20px; width: 285px; line-height: 20px; font-size: 16px; color: #666; padding-left: 10px;}
+.pop_bld_name_a a {color: #666;}
+.pop_bld_name_a a:hover {color: #d79922;}
+/*end of main page*/
+
+.howto {border: 1px solid #d79922; margin: 20px;}
+.howto>div {padding: 5px;}
+.howto_name {color: #d79922; text-align: center; text-transform: uppercase; font-size: 20px;}
+.howtoline {border: 0; background: #d79922; height: 1px;}
+.howto_desc {padding-left: 10px; text-transform: uppercase; font-size: 16px;}
+.download a{border-color: #f6c653 #bd6a23 #b6631f #e8ab4a; background-color: #d79922; border-width: 3px; border-style: solid; padding: 5px; color: #fff; text-decoration: none;}
+.download a:hover {background-color: #f9bb33; transition: 0.3s; cursor: url(../img/Hand2.cur), pointer;}
+.howto_desc table{color: #fff;}
+.howto_desc table tr td {padding-left: 5px;}
