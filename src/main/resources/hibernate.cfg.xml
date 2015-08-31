@@ -15,5 +15,7 @@
         <mapping class="com.starr.smartbuilds.entity.Tag"/>
         <mapping class="com.starr.smartbuilds.entity.Champion"/>
         <mapping class="com.starr.smartbuilds.entity.User"/>
+        <mapping class="com.starr.smartbuilds.entity.Category"/>
+        <mapping class="com.starr.smartbuilds.entity.Build"/>
     </session-factory>
 </hibernate-configuration>

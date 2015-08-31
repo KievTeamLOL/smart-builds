@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
+@RequestMapping("/champs")
 public class ChampsController {
       
     @Autowired

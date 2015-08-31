@@ -6,11 +6,14 @@
 package com.starr.smartbuilds.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -55,6 +58,9 @@ public class User implements Serializable {
     @Email
     @Size(min = 5, max = 64)
     private String email;
+    
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="user")
+    private List<Build> builds;
 
     public long getId() {
         return id;
@@ -107,6 +113,15 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public List<Build> getBuilds() {
+        return builds;
+    }
+
+    public void setBuilds(List<Build> builds) {
+        this.builds = builds;
+    }
+    
     
     
 }

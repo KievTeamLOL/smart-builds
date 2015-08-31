@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
+@RequestMapping("/items")
 public class ItemsController {
 
     @Autowired

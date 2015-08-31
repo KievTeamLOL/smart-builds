@@ -5,6 +5,8 @@
  */
 package com.starr.smartbuilds.entity;
 
+import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,9 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,9 +23,8 @@ import javax.persistence.Table;
  * @author Tanya
  */
 @Entity
-@Table(name = "tags")
-public class Tag {
-
+@Table(name = "categories")
+public class Category implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,12 +33,9 @@ public class Tag {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "tags")
-    private Set<Item> items;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "category", referencedColumnName = "id")
-    private Category category;
+  
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="category")
+    private List<Tag> tags;
 
     public long getId() {
         return id;
@@ -52,22 +49,15 @@ public class Tag {
         this.name = name;
     }
 
-    public Set<Item> getItems() {
-        return items;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public void setItems(Set<Item> items) {
-        this.items = items;
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-
+ 
 
 }
+

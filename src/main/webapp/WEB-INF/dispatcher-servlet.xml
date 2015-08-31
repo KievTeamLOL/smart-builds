@@ -13,7 +13,9 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <context:component-scan base-package="com.starr.smartbuilds"/>
     <context:annotation-config/>
-
+    <mvc:annotation-driven />
+    <mvc:resources mapping="/res/**" location="/res/"/>
+    
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
     
     <!--
@@ -21,20 +23,6 @@
     for the index controller we are using ParameterizableViewController, so we must
     define an explicit mapping for it.
     -->
-    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <props>
-                <prop key="/">indexController</prop>
-                <prop key="items">itemsController</prop>
-                <prop key="add">addController</prop>
-                <prop key="champions">champsController</prop>
-                <prop key="reg">regController</prop>
-                <prop key="auth">authController</prop>
-                <prop key="facebook">facebookController</prop>
-            </props>
-        </property>
-    </bean>
-
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/views/"
@@ -46,25 +34,5 @@
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
-    
-    <bean name="itemsController"
-          class="com.starr.smartbuilds.controller.ItemsController"/>
-     
-    <bean name="addController"
-          class="com.starr.smartbuilds.controller.AddController"/>
-     
-    <bean name="champsController"
-          class="com.starr.smartbuilds.controller.ChampsController"/>
-     
-    <bean name="regController"
-          class="com.starr.smartbuilds.controller.RegController"/>
-      
-    <bean name="authController"
-          class="com.starr.smartbuilds.controller.AuthController"/>
-       
-    <bean name="facebookController"
-          class="com.starr.smartbuilds.controller.FacebookController"/>
-
-    
 
 </beans>

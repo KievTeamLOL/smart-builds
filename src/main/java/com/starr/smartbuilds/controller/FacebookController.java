@@ -21,19 +21,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
+@RequestMapping("/facebook")
 public class FacebookController {
   
     @Autowired
     private RegService regService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getAuth(Model model) {
+    public String getFace(Model model) {
         model.addAttribute("file", new FileService());
         return "facebook";
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public String addUser(@ModelAttribute("file") FileService file, Model model) throws IOException {
+    public String addFace(@ModelAttribute("file") FileService file, Model model) throws IOException {
         String result = file.writeFile();  
         model.addAttribute("result", result);
         return "facebook";

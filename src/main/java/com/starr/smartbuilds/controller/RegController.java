@@ -25,19 +25,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
+@RequestMapping("/reg")
 public class RegController {
 
     @Autowired
     private RegService regService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getAuth(Model model) {
+    public String getReg(Model model) {
         model.addAttribute("user", new User());
         return "reg";
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public String addUser(@ModelAttribute("user") User user, Model model) throws IOException, ParseException {
+    public String regUser(@ModelAttribute("user") User user, Model model) throws IOException, ParseException {
         String regMsg = regService.registerUser(user);
         model.addAttribute("result", regMsg);
         return "reg";

@@ -6,9 +6,12 @@
 package com.starr.smartbuilds.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,6 +27,9 @@ public class Champion implements Serializable{
 
     @Column(name = "name")
     private String name;
+    
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="champion")
+    private List<Build> builds;
 
     public long getId() {
         return id;
@@ -39,6 +45,14 @@ public class Champion implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Build> getBuilds() {
+        return builds;
+    }
+
+    public void setBuilds(List<Build> builds) {
+        this.builds = builds;
     }
     
     

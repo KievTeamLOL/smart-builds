@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Tanya
  */
 @Controller
+@RequestMapping("/add")
 public class AddController {
      @Autowired
     private ItemDAO itemDAO;
