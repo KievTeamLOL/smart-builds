@@ -46,7 +46,7 @@ public class AddController {
             dataService.getItemsDataFromRiotAPI();
             tags = tagDAO.listTags();
         }
-        model.addAttribute("tags", tags);
-        return "add";
+       // model.addAttribute("tags", tags);
+        return "add_build";
     }
 }

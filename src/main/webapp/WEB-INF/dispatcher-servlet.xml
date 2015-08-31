@@ -15,7 +15,7 @@
     <context:annotation-config/>
 
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
-
+    
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must
@@ -48,21 +48,23 @@
           p:viewName="index" />
     
     <bean name="itemsController"
-           class="com.starr.smartbuilds.controller.ItemsController"/>
+          class="com.starr.smartbuilds.controller.ItemsController"/>
      
     <bean name="addController"
-           class="com.starr.smartbuilds.controller.AddController"/>
+          class="com.starr.smartbuilds.controller.AddController"/>
      
     <bean name="champsController"
-           class="com.starr.smartbuilds.controller.ChampsController"/>
+          class="com.starr.smartbuilds.controller.ChampsController"/>
      
     <bean name="regController"
-            class="com.starr.smartbuilds.controller.RegController"/>
+          class="com.starr.smartbuilds.controller.RegController"/>
       
     <bean name="authController"
-             class="com.starr.smartbuilds.controller.AuthController"/>
+          class="com.starr.smartbuilds.controller.AuthController"/>
        
     <bean name="facebookController"
-             class="com.starr.smartbuilds.controller.FacebookController"/>
+          class="com.starr.smartbuilds.controller.FacebookController"/>
+
+    
 
 </beans>
