@@ -13,7 +13,7 @@ a:hover {cursor: url(../img/Hand2.cur), pointer!important;}
 .center {text-align: center!important;}
 .clr {clear: both;}
 input:focus, select:focus, option:focus {outline:none;}
-.middleblock {width: 100%; min-width: 1280px; background: url(../img/bg.jpg) 50% 50% no-repeat fixed; background-size: cover; position:relative; z-index:1; box-shadow: inset 0px -30px 30px -20px rgba(0, 0, 0, 0.75);}
+.middleblock {min-height: 100%; width: 100%; min-width: 1280px; background: url(../img/bg.jpg) 50% 50% no-repeat fixed; background-size: cover; position:relative; z-index:1; box-shadow: inset 0px -30px 30px -20px rgba(0, 0, 0, 0.75);}
 /*end of pre*/
 /*header*/
 /*main page header .header {height: 100%; width: 100%; background-image: url(http://eune.leagueoflegends.com/sites/default/files/upload/art/teambuilder-wallpaper.jpg); transition: all 200ms linear; background-size: cover; background-position: 100% 50%;} */
@@ -25,7 +25,7 @@ input:focus, select:focus, option:focus {outline:none;}
 .search_form {display: block; float: left;}
 .search_input {display: none; float: left; opacity: 0; position: absolute; right: 20px;}
 .statusbar {display: table-cell; height: 60px; width: 100%; padding: 5px 0 5px 0;}
-.sitename {color: #fff; font-family: 'Open Sans Condensed', 'Kelly Slab', cursive;}
+.sitename {width: 200px; color: #fff; font-family: 'Open Sans Condensed', cursive;}
 .notifbar {font-size: 16px; text-align: right; text-transform: uppercase; color: #fff;position: relative; }
 .notifbar a {color: #fff; transition: 0.2s; text-decoration: none; font-family: 'Open Sans Condensed', sans-serif;}
 .notifbar a:hover {color: #000;}
@@ -46,7 +46,7 @@ input:focus, select:focus, option:focus {outline:none;}
 
 /*content*/
 .content {width: 1280px; margin: 0 auto; border-top: none; color: #ccc; background: url(../img/border_bg_1280.png) repeat-y; z-index: 0; font-family: 'Open Sans Condensed', sans-serif;}
-.wrapper {padding: 5px 20px 5px 20px;}
+.wrapper {min-height: 100%; padding: 5px 20px 5px 20px;}
 
 .guide_name {text-align: center; height: 36px; width: 300px;  font-size: 18px; padding: 2px; border-color: #f6c653 #bd6a23 #b6631f #e8ab4a; background-color: #d79922; border-width: 3px; border-style: solid;}
 .center_container {padding-top: 20px; padding-bottom: 20px;}
@@ -69,17 +69,24 @@ select option {background-color: #c68811; color: #222;}
 .chosen_item {display: inline-block; width: 75px; height: 75px; background-size: cover;}
 .chosen_item div {height: 100%; width: 100%; background: url(../img/cancel.png); background-size: cover; opacity: 0; transition: 0.2s;}
 .chosen_item:hover div {opacity: 0.8;}
+
+.reg_form {margin-top: 15px; text-align: center;}
+.reg_form p {padding: 5px;}
+.reg_send_button {border-color: #f6c653 #bd6a23 #b6631f #e8ab4a; background-color: #d79922; border-width: 3px; border-style: solid; transition: 0.2s; padding: 5px; font-size: 16px; color: #fff;}
+.reg_send_button:hover {background-color: #f9bb33; transition: 0.3s; cursor: url(../img/Hand2.cur), pointer;}
+
 /*shop*/
 .shop {width: 100%; height: 500px;}
 .shop_block {width: 50%; float: left; background: black; height: 100%;}
 .apeend_items {width: 50%; background: #DEDEDE; margin-left: 50%; height: 100%; border: 3px inset #ccc; box-sizing: border-box; overflow: auto;}
-.sort_block {float: left; height: 100%; width: 200px; background-color: #385; overflow: auto; border: 3px inset #ccc; box-sizing: border-box;}
+.sort_block {float: left; height: 100%; width: 200px; background-color: #263439; overflow: auto; border: 3px inset #ccc; box-sizing: border-box;}
 .sort_block ul li {list-style-type: none; display: block; padding-left: 5px; border: 2px solid transparent;}
 .sort_block ul li:hover {background-color: #274; cursor: url(../img/Hand2.cur), pointer;}
 .active_sort_block {border: 2px solid #6b8!important;}
 .sort_block >ul>div {background-color: #222; padding-left: 12px; font-size: 18px; color: #4F6453; font-weight: bold;}
 .item_list_block {width: 420px; height: 100%; overflow: auto; position: relative; border: 3px inset #ccc; box-sizing: border-box; background: url(../img/shop_bg.png) repeat;}
-.gamecmp {width: 75px; height: 75px; margin: 12px; float: left; background-size: cover; border: 0;}
+.gamecmpblock{text-align:center; width: 75px; height: 75px; margin: 12px; float: left; background-size: cover; border: 0; font-size: 14px;}
+.gamecmp {text-align:center; width: 50px; height: 50px; margin: 12px 12px 6px 12px; float: left; background-size: cover; border: 0;}
 .gamecmp:hover {cursor: url(../img/Hand2.cur), pointer;}
 /*end of shop*/
 

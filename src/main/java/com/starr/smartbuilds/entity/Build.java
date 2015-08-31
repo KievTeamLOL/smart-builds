@@ -6,8 +6,6 @@
 package com.starr.smartbuilds.entity;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -45,6 +42,9 @@ public class Build implements Serializable {
     
     @Column(name = "type")
     private String type;
+    
+    @Column(name = "blocks", columnDefinition = "text")
+    private String blocks;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "champion", referencedColumnName = "id")
@@ -112,6 +112,14 @@ public class Build implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getBlocks() {
+        return blocks;
+    }
+
+    public void setBlocks(String blocks) {
+        this.blocks = blocks;
     }
 
     

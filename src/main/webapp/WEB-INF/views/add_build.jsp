@@ -23,12 +23,12 @@
                 <div style="display: table-row;">
                     <div class="inheader">
                         <div class="sitename_block">
-                            <a href="/" style="text-decoration: none; color: #fff;"><img src="img/genius.png" style="width: 128px; height: 128px; text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename">Name</div></a>
+                            <a href="/" style="text-decoration: none; color: #fff;"><img src="res/img/genius.png" style="width: 186px; height: 128px;  text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
                         </div>
                         <div class="statusbar">
                             <div class="notifbar">
                                 <div class="nbar">
-                                    <div class="account_log"><a href="">Profile</a><a href="">Authorisation</a></div>
+                                    <div class="account_log"><a href="">Profile</a><a href="">Authorization</a></div>
                                     <div class="account_reg"><a href="">Registration</a></div>
                                     <div style="height: 20px;"><form class="search_form"><input id="search_input" type="text" name="search_request" class="search_input"><input id="search_button" type="submit" class="search" style="width: 20px; background-color: none;" value=""></form></div>
                                     <div class="clr"></div>
@@ -50,91 +50,45 @@
             <!-- CONTENT -->
             <div class="content">
                 <div class="wrapper">
-                    <form name="f1">
+                    <form:form method="POST" modelAttribute="build" name="f1">
                         <div class="center center_container">
-                            <p><input name="guide_name" id="guide_name" class="guide_name" type="text" value="Guide name"></p>
+                            <p><form:input path='name' name="guide_name" id="guide_name" class="guide_name" type="text"/></p>
                         </div>
                         <div class="shop">
 
                             <div class="shop_block">
                                 <div class="sort_block">
                                     <ul>
-                                        <div>Defence</div>
-                                        <li tag="health">Health</li>
-                                        <li>Armor</li>
-                                        <li>Magic resist</li>
-                                        <li>Health regen</li>
-                                        <li>Tenacity</li>
-                                        <div>Attack</div>
-                                        <li>Damage</li>
-                                        <li>Critical strike</li>
-                                        <li>Attack speed</li>
-                                        <li>Life steal</li>
-                                        <div>Magic</div>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <div>Movement</div>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <div>Block1</div>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <div>Block2</div>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <div>Block1</div>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <div>Block2</div>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <div>Block1</div>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <li>text</li>
-                                        <div>Block2</div>
-                                        <li>text</li>
-                                        <li>text</li>
+                                        <c:forEach items="${categories}" var="category">
+                                            <div>${category.name}</div>
+                                            <c:forEach items="${category.tags}" var="tag">
+                                                <li tag="${tag.name}">${tag.name}</li>
+                                                </c:forEach>
+                                            </c:forEach>
                                     </ul>
                                 </div>
                                 <div class="item_list_block">
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid3" class="gamecmp" tag="health" style="background-image: url('http://img2.wikia.nocookie.net/__cb20130515071904/leagueoflegends/images/6/68/Poro-Snax_item.png');" title="Diet Poro-Snax"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid3" class="gamecmp" tag="health" style="background-image: url('http://img2.wikia.nocookie.net/__cb20130515071904/leagueoflegends/images/6/68/Poro-Snax_item.png');" title="Diet Poro-Snax"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid3" class="gamecmp" tag="health" style="background-image: url('http://img2.wikia.nocookie.net/__cb20130515071904/leagueoflegends/images/6/68/Poro-Snax_item.png');" title="Diet Poro-Snax"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid3" class="gamecmp" tag="health" style="background-image: url('http://img2.wikia.nocookie.net/__cb20130515071904/leagueoflegends/images/6/68/Poro-Snax_item.png');" title="Diet Poro-Snax"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid3" class="gamecmp" tag="health" style="background-image: url('http://img2.wikia.nocookie.net/__cb20130515071904/leagueoflegends/images/6/68/Poro-Snax_item.png');" title="Diet Poro-Snax"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid3" class="gamecmp" tag="health" style="background-image: url('http://img2.wikia.nocookie.net/__cb20130515071904/leagueoflegends/images/6/68/Poro-Snax_item.png');" title="Diet Poro-Snax"></div>
-                                    <div id="gameid1" class="gamecmp" style="background-image: url('http://usercontent2.hubimg.com/6182733_f120.jpg');" title="Abyssal scepter"></div>
-                                    <div id="gameid2" class="gamecmp" style="background-image: url('http://img1.wikia.nocookie.net/__cb20130319090217/leagueoflegends/images/4/4e/Boots_of_Speed_item.png');" title="Boots of speed"></div>
+                                    <c:forEach items="${tags}" var="tag">
+                                        <c:forEach items="${tag.items}" var="item">
+                                            <div class="gamecmpblock" tag="${tag.name}">
+                                                <div id="${item.id}" class="gamecmp" tag="${tag.name}" title="${item.name}" style="background-image: url('http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/${item.id}.png');"></div>
+                                                <div class="gamecmptext" tag="${tag.name}">${item.name}</div>
+                                            </div>
+                                        </c:forEach>
+                                    </c:forEach>
                                     <div class="clr"></div>
                                 </div>
                                 <div class="clr"></div>
                             </div>
                             <div class="apeend_items">
                                 <div class="prop_block">
-                                    <div class="prop_title">BLOCKS</div><select id="champion" class="champion" name="champion"><option>Champion</option><option>Akali</option><option>Aatrox</option><option>Allah Akbar</option><option>Ahahaha</option><option>Other</option></select></p><input class="addblock" type="button" value="ADD BLOCK">
+                                    <div class="prop_title">BLOCKS</div>
+                                    <form:select path="champion" id="champion" class="champion" name="champion">    
+                                        <c:forEach items="${champions}" var="champion">
+                                            <option>${champion.name}</option>
+                                        </c:forEach>
+                                    </form:select>
+                                    <input class="addblock" type="button" value="ADD BLOCK">
                                 </div>
                                 <div class="items">
                                     <div id="item_block_0" class="item_block"><div class="block_stuff"><button class="del_item_block">[X]</button><p>Block name:<input class="item_block_name" name="item_block_name0" type="text"> Block comment:<input class="item_block_comm"  name="item_block_comm0" type="text"></p></div></div>
@@ -146,26 +100,55 @@
                         <table class="add_stuff">
                             <tr>
                                 <td>Lane:</td>
-                                <td><select id="lane" name="lane"><option>Lane</option><option>Top</option><option>Jungle</option><option>Mid</option><option>Bot</option><option>Other</option></select></td>
+                                <td>
+                                    <form:select path="lane" id="lane" name="lane">
+                                        <option>Top</option>
+                                        <option>Jungle</option>
+                                        <option>Mid</option>
+                                        <option>Bot</option>
+                                        <option>Other</option>
+                                    </form:select>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Role:</td>
-                                <td><select id="role" name="role"><option>Role</option><option>Ap</option><option>Adc</option><option>Tank</option><option>Support</option><option>Other</option></select></td>
+                                <td>
+                                    <form:select path="role" id="role" name="role">
+                                        <option>Ap</option>
+                                        <option>Adc</option>
+                                        <option>Assassin</option>
+                                        <option>Tank</option>
+                                        <option>Support</option>
+                                        <option>Other</option>
+                                    </form:select>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Map:</td>
-                                <td><select id="map" name="map"><option>Map</option><option>Summoner's Rift</option><option>Twisted Treeline</option><option>Crystal Scar</option><option>Howling Abyss</option></select></td>
+                                <td>
+                                    <form:select path="map" id="map" name="map">
+                                        <option>Summoner's Rift</option>
+                                     </form:select>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Guide type:</td>
-                                <td><select id="type" name="type"><option>Guide type</option><option>All types</option><option>General</option><option>LOLz</option><option>Other</option></select></td>
+                                <td>
+                                    <form:select path="type" id="type" name="type">
+                                        <option>All types</option>
+                                        <option>General</option>
+                                        <option>LOLz</option>
+                                        <option>Other</option>
+                                    </form:select>
+                                </td>
                             </tr>
                         </table>
-                        <input id="subminput" type="hidden" name="blocks" value="">
+                        <form:input path="blocks" id="subminput" type="hidden" name="blocks" value=""/>
+                        
                         <div class="center center_container">
                             <input id="finnish" class="finnish" name="finnish" type="submit" value="Send">
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
             <!-- END OF CONTENT -->
@@ -175,7 +158,7 @@
             <ul>
                 <li>
                     <p class="home">Home</p>
-                    <div style="display: block; width: 222px; text-align: center;"><img src="img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
+                    <div style="display: block; width: 222px; text-align: center;"><img src="res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
                     <div style="display: block;"><a class="logo" href="#">Site Name <i>&copy; 2015</i></a></div>
                 </li>
                 <li>
@@ -204,7 +187,7 @@
         </div>
         <!-- END OF FOOTER -->
 
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="res/js/main.js"></script>
         <script>
             function checksome() {
                 var data = {};
