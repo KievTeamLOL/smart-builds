@@ -38,9 +38,7 @@ public class ItemDAOImpl implements ItemDAO {
     public List<Item> listItems() {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        List<Item> items = session.createCriteria(Item.class)
-                .addOrder(Order.asc("name"))
-                .list();
+        List<Item> items = session.createQuery("SELECT i FROM Item i ORDER BY name ASC").list();
         trans.commit();
         return items;
     }

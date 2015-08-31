@@ -37,9 +37,7 @@ public class TagDAOImpl implements TagDAO {
     public List<Tag> listTags() {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        List<Tag> tags = session.createCriteria(Tag.class)
-                .addOrder(Order.asc("name"))
-                .list();
+        List<Tag> tags = session.createQuery("SELECT t FROM Tag t ORDER BY name ASC").list();
         trans.commit();
         return tags;
     }
