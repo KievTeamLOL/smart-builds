@@ -16,22 +16,19 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AuthService {
-
-    @Autowired
-    private UserDAO userDAO;
-
+    
     private String email;
     private String password;
 
-    public boolean checkAuth() {
+    public User checkAuth(UserDAO userDAO) {
         User user = userDAO.getUserByEmail(email);
         if (user == null) {
-            return false;
+            return null;
         }else {
             if (user.getPassword().equals(password)){
-                return true;
+                return user;
             }else {
-                return false;
+                return null;
             }
         }
     }

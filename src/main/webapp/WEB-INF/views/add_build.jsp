@@ -19,28 +19,28 @@
     <body>
         <div class="middleblock">
             <!-- HEADER -->
-            <div class="header">
+             <div class="header">
                 <div style="display: table-row;">
                     <div class="inheader">
                         <div class="sitename_block">
-                            <a href="/" style="text-decoration: none; color: #fff;"><img src="res/img/genius1.png" style="width: 186px; height: 128px;  text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
+                            <a href="./" style="text-decoration: none; color: #fff;"><img src="res/img/genius1.png" style="width: 186px; height: 128px; text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
                         </div>
                         <div class="statusbar">
                             <div class="notifbar">
                                 <div class="nbar">
-                                    <div class="account_log"><a href="">Profile</a><a href="">Authorization</a></div>
-                                    <div class="account_reg"><a href="">Registration</a></div>
+                                    <div class="account_log"><a href="">${authMsg}</a></div>
+                                    <div class="account_reg"><a href="">${exitReg}</a></div>
                                     <div style="height: 20px;"><form class="search_form"><input id="search_input" type="text" name="search_request" class="search_input"><input id="search_button" type="submit" class="search" style="width: 20px; background-color: none;" value=""></form></div>
                                     <div class="clr"></div>
                                 </div>
                                 <div class="menubar">
                                     <ul>
-                                        <li><a href="/">Main Page</a></li>
-                                        <li><a href="page/builds.html">Builds</a></li>
-                                        <li><a href="page/contacts.html">Contacts</a></li>
-                                        <li><a href="page/about.html">About</a></li>
+                                        <li><a href="./">Main Page</a></li>
+                                        <li><a href="./builds">Builds</a></li>
+                                        <li><a href="./contacts">Contacts</a></li>
+                                        <li><a href="./about">About</a></li>
                                     </ul>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>

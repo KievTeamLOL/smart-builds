@@ -55,7 +55,7 @@ public class IndexController {
             model.addAttribute("exitReg","<a href='./reg'>Register</a>");
         }else{
             model.addAttribute("authMsg","Hello,"+user.getSummonerName()+"!");
-            model.addAttribute("exitReg","<a href='./exit'>Exit</a>");
+            model.addAttribute("exitReg","<a href='./auth/exit'>Exit</a>");
         }
         List<Champion> champions = championDAO.listChampions();
         List<String> champions_new = new ArrayList<String>();

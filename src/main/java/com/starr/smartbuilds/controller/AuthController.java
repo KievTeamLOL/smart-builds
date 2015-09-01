@@ -12,6 +12,9 @@ import com.starr.smartbuilds.service.AuthService;
 import com.starr.smartbuilds.service.RegService;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,20 +33,44 @@ public class AuthController {
 
     @Autowired
     private RegService regService;
+    
+    @Autowired
+    private UserDAO userDAO;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getAuth(Model model) {
+    public String getAuth(Model model,HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("user");
+        if(user==null){
+            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+        }else{
+            resp.sendRedirect("./");
+        }
         model.addAttribute("auth", new AuthService());
-        return "auth";
+        return "authorization";
+    }
+    
+    @RequestMapping(method = {RequestMethod.GET}, value="/exit")
+    public void getExit(Model model,HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession session = req.getSession();
+        session.setAttribute("user", null);
+        resp.sendRedirect("../");
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public String addUser(@ModelAttribute("auth") AuthService auth, Model model) {
-        if(auth.checkAuth()){
-            model.addAttribute("result", "done");
+    public String addUser(@ModelAttribute("auth") AuthService auth, Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        User user = auth.checkAuth(userDAO);
+        HttpSession session = req.getSession();
+        if(user!=null){ //вернуть юзера
+            session.setAttribute("user", user);
+            resp.sendRedirect("./");
         }else {
-             model.addAttribute("result", "fail");
+            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+            model.addAttribute("result", "<font color='red'><b>Wrong email or password!</b></font>");
         }
-        return "auth";
+         return "authorization";
+       
     }
 }
