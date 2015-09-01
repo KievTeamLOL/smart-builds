@@ -8,22 +8,9 @@ package com.starr.smartbuilds.controller;
 import com.starr.smartbuilds.dao.ItemDAO;
 import com.starr.smartbuilds.dao.TagDAO;
 import com.starr.smartbuilds.entity.Item;
-import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.service.DataService;
-import com.starr.smartbuilds.util.Constants;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.net.ssl.HttpsURLConnection;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,7 +36,7 @@ public class ItemsController {
     private DataService dataService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getItems(Model model) throws IOException, ParseException {
+    public void getItems(Model model) throws IOException, ParseException {
 
         List<Item> items = itemDAO.listItems();
         if (items.size() == 0) {
@@ -58,7 +45,7 @@ public class ItemsController {
         }
         System.out.println("lal= " + items.size());
         model.addAttribute("items", items);
-        return "items";
+       //return "items";
     }
 
 }

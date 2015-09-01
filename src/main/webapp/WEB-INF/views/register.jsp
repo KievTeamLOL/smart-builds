@@ -8,10 +8,10 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+
 <html>
     <head>
-        <title>Guides</title>
+        <title>Register</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="res/styles/style.css">
         <script type="text/javascript" src="res/js/jquery-2.1.1.min.js"></script>

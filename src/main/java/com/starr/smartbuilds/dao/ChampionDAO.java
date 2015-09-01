@@ -19,7 +19,7 @@ public interface ChampionDAO {
 
     public void removeChampion(Champion champion);
 
-    public Champion getChampion(Integer id);
+    public Champion getChampion(Long id);
     
     public void updateChampion(Champion  champion);
 }

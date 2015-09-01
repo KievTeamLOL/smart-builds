@@ -36,6 +36,7 @@
                                 <div class="menubar">
                                     <ul>
                                         <li><a href="./">Main Page</a></li>
+                                         ${createbuild}
                                         <li><a href="./builds">Builds</a></li>
                                         <li><a href="./contacts">Contacts</a></li>
                                         <li><a href="./about">About</a></li>
@@ -83,11 +84,11 @@
                             <div class="apeend_items">
                                 <div class="prop_block">
                                     <div class="prop_title">BLOCKS</div>
-                                    <form:select path="champion" id="champion" class="champion" name="champion">    
+                                    <select  id="champion" class="champion" name="champion">    
                                         <c:forEach items="${champions}" var="champion">
-                                            <option>${champion.name}</option>
+                                            <option value="${champion.id}">${champion.name}</option>
                                         </c:forEach>
-                                    </form:select>
+                                    </select>
                                     <input class="addblock" type="button" value="ADD BLOCK">
                                 </div>
                                 <div class="items">

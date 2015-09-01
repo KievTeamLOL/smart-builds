@@ -28,15 +28,15 @@ public class FacebookController {
     private RegService regService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getFace(Model model) {
+    public void getFace(Model model) {
         model.addAttribute("file", new FileService());
-        return "facebook";
+        //return "facebook";
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public String addFace(@ModelAttribute("file") FileService file, Model model) throws IOException {
+    public void addFace(@ModelAttribute("file") FileService file, Model model) throws IOException {
         String result = file.writeFile();  
         model.addAttribute("result", result);
-        return "facebook";
+       // return "facebook";
     }
 }

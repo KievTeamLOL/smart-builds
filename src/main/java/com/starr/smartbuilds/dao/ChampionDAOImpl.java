@@ -53,8 +53,12 @@ public class ChampionDAOImpl implements ChampionDAO{
     }
 
     @Override
-    public Champion getChampion(Integer id) {
-        return (Champion) sessionFactory.getCurrentSession().get(Champion.class, id);
+    public Champion getChampion(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction trans = session.beginTransaction();
+        Champion champion = (Champion) session.get(Champion.class, id);
+        trans.commit();
+        return champion;
     }
 
     @Override
