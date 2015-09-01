@@ -9,6 +9,7 @@ import com.starr.smartbuilds.dao.BuildDAO;
 import com.starr.smartbuilds.entity.Build;
 import com.starr.smartbuilds.entity.User;
 import com.starr.smartbuilds.service.BuildService;
+import com.starr.smartbuilds.service.FileService;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,9 +31,12 @@ public class BuildController {
 
     @Autowired
     private BuildDAO buildDAO;
-    
-     @Autowired
+
+    @Autowired
     private BuildService buildService;
+
+    @Autowired
+    private FileService fileService;
 
     @RequestMapping(method = {RequestMethod.GET})
     public String getBuild(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException, ParseException {
@@ -44,15 +48,14 @@ public class BuildController {
             resp.sendRedirect("./");
         } else {
             buildId = Long.parseLong(p);
-           // try {
+            try {
                 build = buildDAO.getBuild(buildId);
-
-                String champion = build.getChampion().getName().replace(" ", "-").replace(".", "").replace("'", "");
 
                 model.addAttribute("author", build.getUser());
                 model.addAttribute("build", build);
-                model.addAttribute("champion", champion);
+                model.addAttribute("champion", build.getChampion().getKeyChamp());
                 model.addAttribute("blocks", buildService.parseBlocks(build.getBlocks()));
+                model.addAttribute("download", fileService.getFile(build));
 
                 HttpSession session = req.getSession();
                 User user = (User) session.getAttribute("user");
@@ -64,9 +67,9 @@ public class BuildController {
                     model.addAttribute("exitReg", "<a href='./auth/exit'>Exit</a>");
                     model.addAttribute("createbuild", "<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
                 }
-           // } catch (NullPointerException ex) {
-            //    resp.sendRedirect("./");
-           // }
+            } catch (NullPointerException ex) {
+                resp.sendRedirect("./");
+            }
 
         }
 

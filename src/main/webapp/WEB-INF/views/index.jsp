@@ -52,7 +52,7 @@
 
                     <div class="champions">
                         <c:forEach items="${champions}" var="champion">
-                            <a href="./builds?champion=${champion}" class="un_cmp" style="background-image: url(http://www.mobafire.com/images/champion/icon/${champion}.png );"></a>
+                            <a href="./builds?champion=${champion.keyChamp}" class="un_cmp" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/5.15.1/img/champion/${champion.keyChamp}.png );"></a>
                         </c:forEach>
 
                     </div>

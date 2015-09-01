@@ -161,9 +161,11 @@ public class DataService {
             JSONObject json_arr = (JSONObject) arr;
             Long id = (Long) json_arr.get("id");
             String name = (String) json_arr.get("name");
+            String key = (String) json_arr.get("key");
             Champion champ = new Champion();
             champ.setId(id);
             champ.setName(name);
+            champ.setKeyChamp(key);
             championDAO.addChampion(champ);
         }
     }

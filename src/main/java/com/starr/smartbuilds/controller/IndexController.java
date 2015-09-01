@@ -59,12 +59,8 @@ public class IndexController {
             model.addAttribute("createbuild","<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
         }
         List<Champion> champions = championDAO.listChampions();
-        List<String> champions_new = new ArrayList<String>();
-        for(Champion champ: champions){
-            champions_new.add(champ.getName().toLowerCase().replace(" ", "-").replace("'", "").replace(".", ""));
-        }
-        model.addAttribute("champions", champions_new);
-                
+        model.addAttribute("champions", champions);
+              
         return "index";
     }
 

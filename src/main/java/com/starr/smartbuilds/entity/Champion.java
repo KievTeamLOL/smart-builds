@@ -28,6 +28,9 @@ public class Champion implements Serializable{
     @Column(name = "name")
     private String name;
     
+    @Column(name = "keyChamp")
+    private String keyChamp;
+    
     @OneToMany(fetch = FetchType.EAGER, mappedBy="champion")
     private List<Build> builds;
 
@@ -54,6 +57,16 @@ public class Champion implements Serializable{
     public void setBuilds(List<Build> builds) {
         this.builds = builds;
     }
+
+    public String getKeyChamp() {
+        return keyChamp;
+    }
+
+    public void setKeyChamp(String keyChamp) {
+        this.keyChamp = keyChamp;
+    }
+
+  
     
     
 }

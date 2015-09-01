@@ -6,10 +6,7 @@
 package com.starr.smartbuilds.controller;
 
 import com.starr.smartbuilds.dao.ChampionDAO;
-import com.starr.smartbuilds.dao.ItemDAO;
-import com.starr.smartbuilds.dao.TagDAO;
 import com.starr.smartbuilds.entity.Champion;
-import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.service.DataService;
 import java.io.IOException;
 import java.util.List;
@@ -37,12 +34,12 @@ public class ChampsController {
     @RequestMapping(method = {RequestMethod.GET})
     public String getChampions(Model model) throws IOException, ParseException {
 
-        List<Champion> champions = championDAO.listChampions();
+       List<Champion> champions = championDAO.listChampions();
         if (champions.isEmpty()) {
             dataService.getChampionsDataFromRiotAPI();
-            champions = championDAO.listChampions();
-        }
-        model.addAttribute("champions", champions);
+         champions = championDAO.listChampions();
+       }
+       model.addAttribute("champions", champions);
         return "champions";
     }
 }

@@ -8,6 +8,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
     <head>
         <title>Build</title>
@@ -54,7 +55,7 @@
                     <div class="center additional_stuff_s"><span style="font-size: 22px;">${build.name}</span></div>
 
                     <div class="buld_info_blk">
-                        <div class="buld_info_blk_img" style="background-image: url(http://www.mobafire.com/images/champion/icon/${champion}.png); "></div>
+                        <div class="buld_info_blk_img" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/${champion}.png); "></div>
                         <div class="buld_info_blk_container">
 
                             <div class="buld_info_blk_auth">Build was created by <a href="">${author.summonerName}</a> ( ${build.season}, Patch: ${build.patch})</div>
@@ -63,8 +64,9 @@
                         <div class="clr"></div>
                     </div>
                     <div class="build_blocks_bp">
-                        <div class="build_block_bp">
-                            <c:forEach items="${blocks}" var="block">
+
+                        <c:forEach items="${blocks}" var="block">
+                            <div class="build_block_bp">
                                 <div class="bld_bk_name_p">${block.name}</div>
                                 <div class="bld_bk_comment_p"><p>${block.comment}</p></div>
                                 <div class="clr"></div>
@@ -72,14 +74,14 @@
                                     <c:forEach items="${block.items}" var="item">
                                         <div class="bld_bk_item_container"><div class="bld_bk_item_img" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/${item.id}.png);"></div><div class="bld_bk_item_name">${item.name}</div></div>
                                             </c:forEach>
-                                    <div class="display: none;"></div>
+                                    <div class="clr"></div>
                                 </div>
-                            </c:forEach>
+                            </div>
+                        </c:forEach>
 
-                        </div>
 
                         <div class="center download">
-                            <a href="">DOWNLOAD BUILD</a>
+                            <a href="${download}">DOWNLOAD BUILD</a>
                         </div>
 
                         <div class="howto">

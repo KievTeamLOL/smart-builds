@@ -28,7 +28,7 @@ public class ChampionDAOImpl implements ChampionDAO{
     public void addChampion(Champion champion) {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
-        session.save(champion);
+        session.persist(champion);
         trans.commit();
     }
 
