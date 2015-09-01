@@ -30,12 +30,12 @@ public class FileService {
          resultMsg = "<font color='red'>Fail: File is not created!</font>";
          } else {
          try {*/
-        File dir = new File("D:/builds");
+        File dir = new File("builds");
         if (!dir.exists() || !dir.isDirectory()) {
             dir.mkdir();
         }
        
-        String fileName = "D:/builds/" + build.getChampion().getKeyChamp() + build.getId() + ".json";
+        String fileName = "builds/" + build.getChampion().getKeyChamp() + build.getId() + ".json";
         File fileBuild = new File(fileName);
         if (!fileBuild.exists() || fileBuild.isDirectory()) {
             String file_data = buildService.buildData(build, buildService.parseBlocks(build.getBlocks()));
