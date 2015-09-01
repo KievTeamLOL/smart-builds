@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface BuildDAO {
 
-    public Build addBuild(Build build);
+    public Long addBuild(Build build);
 
     public List<Build> listBuilds();
 

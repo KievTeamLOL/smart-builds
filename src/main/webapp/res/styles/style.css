@@ -154,7 +154,7 @@ select option {background-color: #c68811; color: #222;}
 
 /*build page*/
 .buld_info_blk {padding-left: 20px;}
-.buld_info_blk_img {background-image: url(http://www.mobafire.com/images/champion/icon/ahri.png); width: 100px; height: 100px; background-size: cover; float: left; border: 3px inset #ccc;}
+.buld_info_blk_img {width: 100px; height: 100px; background-size: cover; float: left; border: 3px inset #ccc;}
 .buld_info_blk_container {height: 100px; margin-left: 20px; float: left;}
 .buld_info_blk_auth {height: 60px; font-size: 20px; line-height: 60px;}
 .buld_info_blk_auth a {color: #ccc;}

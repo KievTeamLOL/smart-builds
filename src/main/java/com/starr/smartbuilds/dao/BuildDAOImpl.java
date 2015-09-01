@@ -22,13 +22,12 @@ public class BuildDAOImpl implements BuildDAO{
  private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
     @Override
-    public Build addBuild(Build build) {
+    public Long addBuild(Build build) {
         Session session = sessionFactory.getCurrentSession();
         Transaction trans = session.beginTransaction();
        Long id = (Long) session.save(build);
-       build = getBuild(id);
         trans.commit();
-        return build;
+        return id;
     }
 
     @Override
@@ -51,7 +50,11 @@ public class BuildDAOImpl implements BuildDAO{
 
     @Override
     public Build getBuild(Long id) {
-        return (Build) sessionFactory.getCurrentSession().get(Build.class, id);
+        Session session = sessionFactory.getCurrentSession();
+        Transaction trans = session.beginTransaction();
+        Build build = (Build) session.get(Build.class, id);
+        trans.commit();
+        return build;
     }
 
 }

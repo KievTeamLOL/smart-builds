@@ -20,7 +20,7 @@ public interface ItemDAO {
 
     public void removeItem(Item item);
 
-    public Item getItem(Integer id);
+    public Item getItem(Long id);
     
     public void updateItem(Item  item);
 }

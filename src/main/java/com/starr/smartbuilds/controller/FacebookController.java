@@ -35,8 +35,8 @@ public class FacebookController {
 
     @RequestMapping(method = {RequestMethod.POST})
     public void addFace(@ModelAttribute("file") FileService file, Model model) throws IOException {
-        String result = file.writeFile();  
-        model.addAttribute("result", result);
+      //  String result = file.writeFile();  
+      //  model.addAttribute("result", result);
        // return "facebook";
     }
 }

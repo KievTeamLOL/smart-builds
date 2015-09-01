@@ -37,25 +37,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/add")
 public class AddController {
-    
+
     @Autowired
     private ItemDAO itemDAO;
-    
+
     @Autowired
     private TagDAO tagDAO;
-    
+
     @Autowired
     private ChampionDAO championDAO;
-    
+
     @Autowired
     private CategoryDAO categoryDAO;
-    
+
     @Autowired
     private BuildDAO buildDAO;
-    
+
     @Autowired
     private DataService dataService;
-    
+
     @RequestMapping(method = {RequestMethod.GET})
     public String getBuilder(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException, ParseException {
         HttpSession session = req.getSession();
@@ -69,7 +69,7 @@ public class AddController {
         }
         Build build = new Build();
         build.setName("Build name");
-        
+
         model.addAttribute("build", build);
         List<Category> categories = categoryDAO.listCategories();
         model.addAttribute("categories", categories);
@@ -77,33 +77,34 @@ public class AddController {
         model.addAttribute("tags", tags);
         List<Champion> champions = championDAO.listChampions();
         model.addAttribute("champions", champions);
-        return "add_build";        
+        return "add_build";
     }
-    
+
     @RequestMapping(method = RequestMethod.POST)
     public String saveBuild(@ModelAttribute("build") Build build, BindingResult result, Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
-        User user = (User) session.getAttribute("user");        
+        User user = (User) session.getAttribute("user");
         build.setUser(user);
         build.setSeason("Season V");
         build.setPatch("5.16.1");
         build.setUser(user);
-        
+
         Long championId = Long.parseLong(req.getParameter("champion"));
         build.setChampion(championDAO.getChampion(championId));
-        
-        Build build_new = buildDAO.addBuild(build);
-        
+
+        Long buildId = buildDAO.addBuild(build);
+        Build build_new = buildDAO.getBuild(buildId);
+
         System.out.println("------BUILD--------");
         System.out.println("Name:" + build.getName());
         System.out.println("Map:" + build.getMap());
         System.out.println("Role:" + build.getRole());
         System.out.println("Lane:" + build.getLane());
-        System.out.println("Type:" + build.getType());               
+        System.out.println("Type:" + build.getType());
         System.out.println("BLOCKS" + build.getBlocks());
-        
-        resp.sendRedirect("./build?id="+build_new.getId());
-        
+
+        resp.sendRedirect("./build?id=" + build_new.getId());
+
         List<Category> categories = categoryDAO.listCategories();
         model.addAttribute("categories", categories);
         List<Tag> tags = tagDAO.listTags();
