@@ -13,7 +13,6 @@ import com.starr.smartbuilds.entity.Champion;
 import com.starr.smartbuilds.entity.User;
 import com.starr.smartbuilds.service.DataService;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

@@ -30,7 +30,6 @@
                                 <div class="nbar">
                                     <div class="account_log"><a href="">${authMsg}</a></div>
                                     <div class="account_reg"><a href="">${exitReg}</a></div>
-                                    <div style="height: 20px;"><form class="search_form"><input id="search_input" type="text" name="search_request" class="search_input"><input id="search_button" type="submit" class="search" style="width: 20px; background-color: none;" value=""></form></div>
                                     <div class="clr"></div>
                                 </div>
                                 <div class="menubar">
@@ -133,7 +132,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Guide type:</td>
+                                <td>Build type:</td>
                                 <td>
                                     <form:select path="type" id="type" name="type">
                                         <option>All types</option>
