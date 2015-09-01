@@ -56,6 +56,7 @@ public class IndexController {
         }else{
             model.addAttribute("authMsg","Hello,"+user.getSummonerName()+"!");
             model.addAttribute("exitReg","<a href='./auth/exit'>Exit</a>");
+            model.addAttribute("createbuild","<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
         }
         List<Champion> champions = championDAO.listChampions();
         List<String> champions_new = new ArrayList<String>();

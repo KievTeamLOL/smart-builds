@@ -35,7 +35,7 @@ public class RegService {
             String tier = dataService.getSummonerTierFromData(user.getRegion(), SummonerID);
             user.setTier(tier);
             userDAO.addUser(user);
-            message = "<font color='green'>Done: Account succesfully registered!</font>";
+            message = "<font color='green'>Done: Account succesfully registered! You can now log in.</font>";
         } catch (javax.validation.ConstraintViolationException v1_ex) {
             message = "<font color='red'>Failed: Problems with data validation! </font>";
         } catch (org.hibernate.exception.ConstraintViolationException v2_ex) {

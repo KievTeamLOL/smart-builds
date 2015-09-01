@@ -5,13 +5,12 @@
  */
 package com.starr.smartbuilds.controller;
 
-import com.starr.smartbuilds.dao.ChampionDAO;
-import com.starr.smartbuilds.dao.UserDAO;
 import com.starr.smartbuilds.entity.User;
-import com.starr.smartbuilds.service.DataService;
 import com.starr.smartbuilds.service.RegService;
 import java.io.IOException;
-import java.net.MalformedURLException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,15 +31,32 @@ public class RegController {
     private RegService regService;
 
     @RequestMapping(method = {RequestMethod.GET})
-    public String getReg(Model model) {
+    public String getReg(Model model,  HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("user");
+        if(user==null){
+            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+        }else{
+            resp.sendRedirect("./");
+        }
         model.addAttribute("user", new User());
-        return "reg";
+        return "register";
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public String regUser(@ModelAttribute("user") User user, Model model) throws IOException, ParseException {
+    public String regUser(@ModelAttribute("user") User user, Model model,  HttpServletRequest req, HttpServletResponse resp) throws IOException, ParseException {
+        HttpSession session = req.getSession();
+        User userr = (User) session.getAttribute("user");
+        if(userr==null){
+            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+        }else{
+            resp.sendRedirect("./");
+        }
         String regMsg = regService.registerUser(user);
+        model.addAttribute("user", new User());
         model.addAttribute("result", regMsg);
-        return "reg";
+        return "register";
     }
 }
