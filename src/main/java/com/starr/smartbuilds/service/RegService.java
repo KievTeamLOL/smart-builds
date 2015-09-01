@@ -5,7 +5,6 @@
  */
 package com.starr.smartbuilds.service;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import com.starr.smartbuilds.dao.UserDAO;
 import com.starr.smartbuilds.entity.User;
 import java.io.FileNotFoundException;

@@ -5,14 +5,13 @@
  */
 package com.starr.smartbuilds.controller;
 
-import com.starr.smartbuilds.dao.CategoryDAO;
+import com.starr.smartbuilds.dao.BuildDAO;
 import com.starr.smartbuilds.dao.ChampionDAO;
-import com.starr.smartbuilds.dao.ItemDAO;
-import com.starr.smartbuilds.dao.TagDAO;
+import com.starr.smartbuilds.entity.Build;
 import com.starr.smartbuilds.entity.Champion;
 import com.starr.smartbuilds.entity.User;
-import com.starr.smartbuilds.service.DataService;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,36 +29,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/")
 public class IndexController {
-    @Autowired
-    private ItemDAO itemDAO;
-
-    @Autowired
-    private TagDAO tagDAO;
 
     @Autowired
     private ChampionDAO championDAO;
-    
-    @Autowired
-    private CategoryDAO categoryDAO;
 
     @Autowired
-    private DataService dataService;
+    private BuildDAO buildDAO;
 
     @RequestMapping(method = {RequestMethod.GET})
     public String getIndex(Model model, HttpServletRequest req) throws IOException, ParseException {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-        if(user==null){
-            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
-            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
-        }else{
-            model.addAttribute("authMsg","Hello,"+user.getSummonerName()+"!");
-            model.addAttribute("exitReg","<a href='./auth/exit'>Exit</a>");
-            model.addAttribute("createbuild","<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
+        if (user == null) {
+            model.addAttribute("authMsg", "<a href='./auth'>Log in</a>");
+            model.addAttribute("exitReg", "<a href='./reg'>Register</a>");
+        } else {
+            model.addAttribute("authMsg", "Hello," + user.getSummonerName() + "!");
+            model.addAttribute("exitReg", "<a href='./auth/exit'>Exit</a>");
+            model.addAttribute("createbuild", "<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
         }
         List<Champion> champions = championDAO.listChampions();
+        List<Build> builds = buildDAO.listBuilds();
+        List<Build> builds_new = new ArrayList();
+
+        if (builds.size() >= 5) {
+            for (int i = 0; i < 5; i++) {
+                builds_new.add(builds.get(i));
+            }
+        } else {
+            builds_new = builds;
+        }
+
+        model.addAttribute("recent", builds_new);
         model.addAttribute("champions", champions);
-              
+
         return "index";
     }
 

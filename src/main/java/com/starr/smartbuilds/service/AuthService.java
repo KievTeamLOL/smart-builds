@@ -7,7 +7,6 @@ package com.starr.smartbuilds.service;
 
 import com.starr.smartbuilds.dao.UserDAO;
 import com.starr.smartbuilds.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**

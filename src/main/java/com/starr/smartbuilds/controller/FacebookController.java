@@ -5,7 +5,6 @@
  */
 package com.starr.smartbuilds.controller;
 
-import com.starr.smartbuilds.service.AuthService;
 import com.starr.smartbuilds.service.FileService;
 import com.starr.smartbuilds.service.RegService;
 import java.io.IOException;

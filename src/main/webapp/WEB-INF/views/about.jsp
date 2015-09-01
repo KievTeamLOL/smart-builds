@@ -36,6 +36,7 @@
                                 <div class="menubar">
                                     <ul>
                                         <li><a href="./">Main Page</a></li>
+                                        ${createbuild}
                                         <li><a href="./builds">Builds</a></li>
                                         <li><a href="./contacts">Contacts</a></li>
                                         <li><a href="./about">About</a></li>
@@ -104,37 +105,37 @@
             <!-- END OF CONTENT -->
         </div>
         <!-- FOOTER -->
-        <div class="footer">
-            <ul>
-                <li>
-                    <p class="home">Home</p>
-                    <div style="display: block; width: 222px; text-align: center;"><img src="res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
-                    <div style="display: block;"><a class="logo" href="#">Site Name <i>&copy; 2015</i></a></div>
-                </li>
-                <li>
-                    <p class="services">Menu</p>
-                    <ul>
-                        <li><a href="/">Main Page</a></li>
-                        <li><a href="/pages/builds.html">Builds</a></li>
-                        <li><a href="/pages/contacts.html">Contacts</a></li>
-                        <li><a href="/pages/about">About</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="reachus">Contacts</p>
-                    <ul>
-                        <li><a class="hideEmail">Click to show E-mail</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <p class="clients">Facebook</p>
-                    <ul>
-                        <li></li>
-                    </ul>
-                </li>
-                <div class="clr"></div>
-            </ul>
-        </div>
+<div class="footer">
+        <ul>
+            <li>
+                <p class="home">Home</p>
+                <div style="display: block; width: 222px; text-align: center;"><img src="res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
+                <div style="display: block;"><a class="logo" href="./">Smart-builds <i>&copy; 2015</i></a></div>
+            </li>
+            <li>
+                <p class="services">Menu</p>
+                <ul>
+                    <li><a href="./">Main Page</a></li>
+                    <li><a href="./builds">Builds</a></li>
+                    <li><a href="./contacts">Contacts</a></li>
+                    <li><a href="./about">About</a></li>
+                </ul>
+            </li>
+            <li>
+                <p class="reachus">Contacts</p>
+                <ul>
+                    <li><a class="hideEmail">Click to show E-mail</a></li>
+                </ul>
+            </li>
+            <li>
+                <p class="clients">Facebook</p>
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+            <div class="clr"></div>
+        </ul>
+    </div>
         <!-- END OF FOOTER -->
 
         <script type="text/javascript" src="res/js/main.js"></script>

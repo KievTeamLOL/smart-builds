@@ -8,14 +8,12 @@ package com.starr.smartbuilds.controller;
 import com.starr.smartbuilds.dao.BuildDAO;
 import com.starr.smartbuilds.dao.CategoryDAO;
 import com.starr.smartbuilds.dao.ChampionDAO;
-import com.starr.smartbuilds.dao.ItemDAO;
 import com.starr.smartbuilds.dao.TagDAO;
 import com.starr.smartbuilds.entity.Build;
 import com.starr.smartbuilds.entity.Category;
 import com.starr.smartbuilds.entity.Champion;
 import com.starr.smartbuilds.entity.Tag;
 import com.starr.smartbuilds.entity.User;
-import com.starr.smartbuilds.service.DataService;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -39,9 +37,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AddController {
 
     @Autowired
-    private ItemDAO itemDAO;
-
-    @Autowired
     private TagDAO tagDAO;
 
     @Autowired
@@ -52,9 +47,6 @@ public class AddController {
 
     @Autowired
     private BuildDAO buildDAO;
-
-    @Autowired
-    private DataService dataService;
 
     @RequestMapping(method = {RequestMethod.GET})
     public String getBuilder(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException, ParseException {

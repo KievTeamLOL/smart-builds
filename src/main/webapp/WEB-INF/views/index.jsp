@@ -31,7 +31,7 @@
                                 <div class="menubar">
                                     <ul>
                                         <li><a href="./">Main Page</a></li>
-                                        ${createbuild}
+                                            ${createbuild}
                                         <li><a href="./builds">Builds</a></li>
                                         <li><a href="./contacts">Contacts</a></li>
                                         <li><a href="./about">About</a></li>
@@ -55,6 +55,7 @@
                         </c:forEach>
 
                     </div>
+                    <!--
                     <div class="popular">
                         <div class="popular_name">popular builds</div>
 
@@ -83,32 +84,21 @@
 
                         </div>
                     </div>
-
+                    -->
                     <div class="popular">
                         <div class="popular_name">recent builds</div>
 
                         <div class="popular_cont">
 
-                            <table class="popular_build">
-                                <tr>
-                                    <td class="pop_bld_img" style="background-image: url(http://www.mobafire.com/images/champion/icon/talon.png);"></td>
-                                    <td class="pop_bld_name" style="background-color: rgba(60,200,60,0.2);"><div class="pop_bld_name_n"><a href="">SUPER RUSH MUZAFAKAAAA</a></div><div class="pop_bld_name_a">Build was created by <a href="">nice_boy</a> 29/8/15 at 11:16</div></td>
-                                </tr>
-                            </table>
+                            <c:forEach items="${recent}" var="build">
+                                <table class="popular_build">
+                                    <tr>
+                                        <td class="pop_bld_img" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/5.15.1/img/champion/${build.champion.keyChamp}.png);"></td>
+                                        <td class="pop_bld_name" style="background-color: rgba(60,200,60,0.2);"><div class="pop_bld_name_n"><a href="./build?id=${build.id}">${build.name}</a></div><div class="pop_bld_name_a">Build was created by <a href="">${build.user.summonerName}</a> </div></td>
+                                    </tr>
+                                </table>
+                            </c:forEach>
 
-                            <table class="popular_build">
-                                <tr>
-                                    <td class="pop_bld_img" style="background-image: url(http://www.mobafire.com/images/champion/icon/talon.png);"></td>
-                                    <td class="pop_bld_name" style="background-color: rgba(200,200,60,0.2);"><div class="pop_bld_name_n"><a href="">SUPER RUSH MUZAFAKAAAA</a></div><div class="pop_bld_name_a">Build was created by <a href="">nice_boy</a> 29/8/15 at 11:16</div></td>
-                                </tr>
-                            </table>
-
-                            <table class="popular_build">
-                                <tr>
-                                    <td class="pop_bld_img" style="background-image: url(http://www.mobafire.com/images/champion/icon/talon.png);"></td>
-                                    <td class="pop_bld_name" style="background-color: rgba(200,60,60,0.2);"><div class="pop_bld_name_n"><a href="">SUPER RUSH MUZAFAKAAAA</a></div><div class="pop_bld_name_a">Build was created by <a href="">nice_boy</a> 29/8/15 at 11:16</div></td>
-                                </tr>
-                            </table>
 
                         </div>
                     </div>
@@ -126,15 +116,15 @@
             <li>
                 <p class="home">Home</p>
                 <div style="display: block; width: 222px; text-align: center;"><img src="res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
-                <div style="display: block;"><a class="logo" href="#">Site Name <i>&copy; 2015</i></a></div>
+                <div style="display: block;"><a class="logo" href="./">Smart-builds <i>&copy; 2015</i></a></div>
             </li>
             <li>
                 <p class="services">Menu</p>
                 <ul>
-                    <li><a href="res/">Main Page</a></li>
-                    <li><a href="res/pages/builds.html">Builds</a></li>
-                    <li><a href="res/pages/contacts.html">Contacts</a></li>
-                    <li><a href="res/pages/about">About</a></li>
+                    <li><a href="./">Main Page</a></li>
+                    <li><a href="./builds">Builds</a></li>
+                    <li><a href="./contacts">Contacts</a></li>
+                    <li><a href="./about">About</a></li>
                 </ul>
             </li>
             <li>

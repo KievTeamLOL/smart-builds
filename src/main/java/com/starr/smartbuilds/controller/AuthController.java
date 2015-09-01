@@ -5,17 +5,14 @@
  */
 package com.starr.smartbuilds.controller;
 
-import com.starr.smartbuilds.dao.ChampionDAO;
 import com.starr.smartbuilds.dao.UserDAO;
 import com.starr.smartbuilds.entity.User;
 import com.starr.smartbuilds.service.AuthService;
 import com.starr.smartbuilds.service.RegService;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

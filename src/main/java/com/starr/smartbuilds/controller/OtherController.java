@@ -30,6 +30,7 @@ public class OtherController {
         }else{
             model.addAttribute("authMsg","Hello,"+user.getSummonerName()+"!");
             model.addAttribute("exitReg","<a href='./auth/exit'>Exit</a>");
+            model.addAttribute("createbuild","<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
         }
         return "contacts";
     }
@@ -44,6 +45,7 @@ public class OtherController {
         }else{
             model.addAttribute("authMsg","Hello,"+user.getSummonerName()+"!");
             model.addAttribute("exitReg","<a href='./auth/exit'>Exit</a>");
+            model.addAttribute("createbuild","<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
         }
         return "about";
     }
