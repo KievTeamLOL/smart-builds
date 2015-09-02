@@ -35,10 +35,10 @@ public class RegController {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
         if(user==null){
-            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
-            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+            model.addAttribute("authMsg","<a href='../auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='../reg'>Register</a>");
         }else{
-            resp.sendRedirect("./");
+            resp.sendRedirect("../");
         }
         model.addAttribute("user", new User());
         return "register";
@@ -49,8 +49,8 @@ public class RegController {
         HttpSession session = req.getSession();
         User userr = (User) session.getAttribute("user");
         if(userr==null){
-            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
-            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+            model.addAttribute("authMsg","<a href='../auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='../reg'>Register</a>");
         }else{
             resp.sendRedirect("./");
         }

@@ -13,8 +13,8 @@
     <head>
         <title>Build</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="res/styles/style.css">
-        <script type="text/javascript" src="res/js/jquery-2.1.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../res/styles/style.css">
+        <script type="text/javascript" src="../res/js/jquery-2.1.1.min.js"></script>
     </head>
     <body>
         <div class="middleblock">
@@ -23,7 +23,7 @@
                 <div style="display: table-row;">
                     <div class="inheader">
                         <div class="sitename_block">
-                            <a href="./" style="text-decoration: none; color: #fff;"><img src="res/img/genius1.png" style="width: 186px; height: 128px; text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
+                            <a href="./" style="text-decoration: none; color: #fff;"><img src="../res/img/genius1.png" style="width: 186px; height: 128px; text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
                         </div>
                         <div class="statusbar">
                             <div class="notifbar">
@@ -34,11 +34,11 @@
                                 </div>
                                 <div class="menubar">
                                     <ul>
-                                        <li><a href="./">Main Page</a></li>
+                                        <li><a href="../">Main Page</a></li>
                                             ${createbuild}
-                                        <li><a href="./builds">Builds</a></li>
-                                        <li><a href="./contacts">Contacts</a></li>
-                                        <li><a href="./about">About</a></li>
+                                        <li><a href="../builds">Builds</a></li>
+                                        <li><a href="../contacts">Contacts</a></li>
+                                        <li><a href="../about">About</a></li>
                                     </ul>
                                 </div> 
                             </div>
@@ -58,7 +58,7 @@
                         <div class="buld_info_blk_container">
 
                             <div class="buld_info_blk_auth">Build was created by <a href="">${author.summonerName}</a> ( ${build.season}, Patch: ${build.patch})</div>
-                            <div class="buld_info_blk_about">who is <img src="res/img/tier/${author.tier}.png" height="40" height="40" style="vertical-align: middle;" title="${author.tier}">, playing on server ${author.region} </div>
+                            <div class="buld_info_blk_about">who is <img src="../res/img/tier/${author.tier}.png" height="40" height="40" style="vertical-align: middle;" title="${author.tier}">, playing on server ${author.region} </div>
                         </div>
                         <div class="clr"></div>
                     </div>
@@ -80,7 +80,7 @@
 
 
                         <div class="center download">
-                            <a href="${download}">DOWNLOAD BUILD</a>
+                            <a href="${download}" target="_blank" download>DOWNLOAD BUILD</a>
                         </div>
 
                         <div class="howto">
@@ -111,16 +111,16 @@
             <ul>
                 <li>
                     <p class="home">Home</p>
-                    <div style="display: block; width: 222px; text-align: center;"><img src="res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
+                    <div style="display: block; width: 222px; text-align: center;"><img src="../res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
                     <div style="display: block;"><a class="logo" href="#">Site Name <i>&copy; 2015</i></a></div>
                 </li>
                 <li>
                     <p class="services">Menu</p>
                     <ul>
-                        <li><a href="/">Main Page</a></li>
-                        <li><a href="/pages/builds.html">Builds</a></li>
-                        <li><a href="/pages/contacts.html">Contacts</a></li>
-                        <li><a href="/pages/about">About</a></li>
+                        <li><a href="../">Main Page</a></li>
+                        <li><a href="../builds">Builds</a></li>
+                        <li><a href="../contacts">Contacts</a></li>
+                        <li><a href="../about">About</a></li>
                     </ul>
                 </li>
                 <li>
@@ -140,6 +140,6 @@
         </div>
         <!-- END OF FOOTER -->
 
-        <script type="text/javascript" src="res/js/main.js"></script>
+        <script type="text/javascript" src="../res/js/main.js"></script>
     </body>
 </html>

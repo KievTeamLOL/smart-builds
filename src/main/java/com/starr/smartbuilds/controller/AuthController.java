@@ -39,10 +39,10 @@ public class AuthController {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
         if(user==null){
-            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
-            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+            model.addAttribute("authMsg","<a href='../auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='../reg'>Register</a>");
         }else{
-            resp.sendRedirect("./");
+            resp.sendRedirect("../");
         }
         model.addAttribute("auth", new AuthService());
         return "authorization";
@@ -61,10 +61,10 @@ public class AuthController {
         HttpSession session = req.getSession();
         if(user!=null){ //вернуть юзера
             session.setAttribute("user", user);
-            resp.sendRedirect("./");
+            resp.sendRedirect("../");
         }else {
-            model.addAttribute("authMsg","<a href='./auth'>Log in</a>");
-            model.addAttribute("exitReg","<a href='./reg'>Register</a>");
+            model.addAttribute("authMsg","<a href='../auth'>Log in</a>");
+            model.addAttribute("exitReg","<a href='../reg'>Register</a>");
             model.addAttribute("result", "<font color='red'><b>Wrong email or password!</b></font>");
         }
          return "authorization";

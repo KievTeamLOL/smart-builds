@@ -47,32 +47,33 @@ public class BuildController {
         if (p != null || !p.equals("")) {
             buildId = Long.parseLong(p);
             try {
+                HttpSession session = req.getSession();
+                
                 build = buildDAO.getBuild(buildId);
-
                 model.addAttribute("author", build.getUser());
                 model.addAttribute("build", build);
                 model.addAttribute("champion", build.getChampion().getKeyChamp());
                 model.addAttribute("blocks", buildService.parseBlocks(build.getBlocks()));
-                model.addAttribute("download", fileService.getFile(build));
+                model.addAttribute("download", fileService.getFile(build, session.getServletContext()));
 
-                HttpSession session = req.getSession();
+                
                 User user = (User) session.getAttribute("user");
                 if (user == null) {
-                    model.addAttribute("authMsg", "<a href='./auth'>Log in</a>");
-                    model.addAttribute("exitReg", "<a href='./reg'>Register</a>");
+                    model.addAttribute("authMsg", "<a href='../auth'>Log in</a>");
+                    model.addAttribute("exitReg", "<a href='../reg'>Register</a>");
                 } else {
                     model.addAttribute("authMsg", "Hello," + user.getSummonerName() + "!");
-                    model.addAttribute("exitReg", "<a href='./auth/exit'>Exit</a>");
-                    model.addAttribute("createbuild", "<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
+                    model.addAttribute("exitReg", "<a href='../auth/exit'>Exit</a>");
+                    model.addAttribute("createbuild", "<li><a href='../add' style='color: #deff00;'>Create Build</a></li>");
                 }
             } catch (NullPointerException ex) {
-                resp.sendRedirect("./");
+                resp.sendRedirect("../");
             }
 
             return "build";
         } else {
             System.out.println("param--" + p);
-            resp.sendRedirect("./");
+            resp.sendRedirect("../");
 
         }
 
