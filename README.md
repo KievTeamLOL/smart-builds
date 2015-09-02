@@ -1,15 +1,12 @@
-# Smart-Builds
-Smart Builds is easy way to create, find and share League of Legends builds. Also, you can download them and install in game in few clicks!
-
-<h1>HOW TO START</h1>
+<h2>HOW TO START</h2>
 <ul>
 <li> <b> To run application on your local machine you require the following software:</b>
-<ol>
+<ol type='1'>
 <li> <a href=”https://java.com/download”> Java VM </a>
 <li> <a href=http://tomcat.apache.org/>Apache Tomcat Server</a> (<a href="https://tomcat.apache.org/tomcat-8.0-doc/setup.html">How to setup?</a>)
 </ol>
 <li> <b> For run application:</b>
-<ol>
+<ol type='1'>
 <li> Download a build file SmartBuilds-1.0-SNAPSHOT.war from repository
 <li> Copy WAR file to TOMCAT_HOME/webapps/. <br>
 	The value of TOMCAT_HOME will depend on where you have Tomcat
