@@ -1,6 +1,12 @@
 # Smart-Builds
 Smart Builds is easy way to create, find and share League of Legends builds. Also, you can download them and install in game in few clicks!
 
+<h2>SITE LINK</h2>
+<h3><a href="http://smart-builds.unicloud.pl/">http://smart-builds.unicloud.pl/</a><h3>
+
+<img src="http://cs622328.vk.me/v622328545/422cf/6rTtAzhVtHo.jpg">
+
+
 <h2>HOW TO START</h2>
 <ul>
 <li> <b> To run application on your local machine you require the following software:</b></li> 
@@ -25,11 +31,6 @@ this line to $CCM_HOME/conf/envvars: TOMCAT_HOME=/usr/share/tomcat
 <li> Enjoy!</li> 
 </ol>
 </ul>
-
-<h2>SITE</h2>
-<h3><a href="http://smart-builds.unicloud.pl/">http://smart-builds.unicloud.pl/</a><h3>
-
-<img src="http://cs622328.vk.me/v622328545/422cf/6rTtAzhVtHo.jpg">
 
 <h3>ABOUT</h3>
 <p>Smart Builds is project for easy creating and installing in-game builds. Under builds we understand complex of items, which you need to buy one by one in game to be succeed. We want to alert you that you might will find some bugs or unfinished parts of this site, but we will try to improve it later, in a free from work/study time, because both of programmers are totally exhausted right now. We believe that in future project will be finished and will be commercially valuable.
