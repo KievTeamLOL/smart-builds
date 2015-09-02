@@ -54,9 +54,9 @@ public class ItemDAOImpl implements ItemDAO {
     @Override
     public Item getItem(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        Transaction trans = session.beginTransaction();
+        //Transaction trans = session.beginTransaction();
         Item item =(Item) session.get(Item.class, id);
-        trans.commit();
+       // trans.commit();
         return item;
     }
 

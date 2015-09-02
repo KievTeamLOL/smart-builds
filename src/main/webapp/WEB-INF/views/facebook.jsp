@@ -28,11 +28,8 @@
         <h1>Hello World!</h1>
         <div class="fb-like" data-href="https://vk.com/id7052545" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
         <h2>Create file:</h2>
-        <form:form method="POST" modelAttribute="file">
-            Name:<form:input path='fileName' type='text'/><br>
-            Text:<form:input path='fileText' type='text'/><br>
-            <input name='submit' type='submit'>
-        </form:form>
+        hello!
+        ${blocks}
         ${result}
     </body>
 </html>

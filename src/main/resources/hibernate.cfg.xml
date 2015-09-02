@@ -6,11 +6,13 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://itelit.mysql.ukraine.com.ua:3306/itelit_dor?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.url">jdbc:mysql://itelit.mysql.ukraine.com.ua:3306/itelit_dor?autoReconnect=true</property>
         <property name="hibernate.connection.username">itelit_dor</property>
         <property name="hibernate.connection.password">s8vx9jm5</property>
         <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.connection.autoReconnect">true</property>
         <property name="hbm2ddl.auto">update</property>
+        <property name="c3p0.timeout">1800</property>
         <mapping class="com.starr.smartbuilds.entity.Item"/>
         <mapping class="com.starr.smartbuilds.entity.Tag"/>
         <mapping class="com.starr.smartbuilds.entity.Champion"/>

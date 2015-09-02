@@ -33,6 +33,7 @@ public class BuildService {
     private ItemDAO itemDAO;
 
     public List<Block> parseBlocks(String data) throws ParseException {
+        List<Item> itemsDB = itemDAO.listItems();
         JSONParser parser = new JSONParser();
         JSONObject json = (JSONObject) parser.parse(data);
         List<Block> blocks = new ArrayList();
@@ -47,7 +48,11 @@ public class BuildService {
                 for (Object obj : json_items) {
                     String img = (String) obj;
                     Long imgId = Long.parseLong(img);
-                    items.add(itemDAO.getItem(imgId));
+                    for(Item i: itemsDB){
+                        if(i.getId()==imgId){  
+                        items.add(i);
+                        }
+                    }
                 }
             }
             block.setItems(items);

@@ -40,13 +40,11 @@ public class BuildController {
 
     @RequestMapping(method = {RequestMethod.GET})
     public String getBuild(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException, ParseException {
+        resp.setHeader("Access-Control-Allow-Origin", "*");
         Build build = new Build();
         Long buildId = 0L;
         String p = req.getParameter("id");
-        if (p == null || p.equals("")) {
-            System.out.println("param--" + p);
-            resp.sendRedirect("./");
-        } else {
+        if (p != null || !p.equals("")) {
             buildId = Long.parseLong(p);
             try {
                 build = buildDAO.getBuild(buildId);
@@ -70,6 +68,11 @@ public class BuildController {
             } catch (NullPointerException ex) {
                 resp.sendRedirect("./");
             }
+
+            return "build";
+        } else {
+            System.out.println("param--" + p);
+            resp.sendRedirect("./");
 
         }
 
