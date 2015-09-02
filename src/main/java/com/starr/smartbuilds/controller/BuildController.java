@@ -59,21 +59,21 @@ public class BuildController {
                 
                 User user = (User) session.getAttribute("user");
                 if (user == null) {
-                    model.addAttribute("authMsg", "<a href='../auth'>Log in</a>");
-                    model.addAttribute("exitReg", "<a href='../reg'>Register</a>");
+                    model.addAttribute("authMsg", "<a href='./auth'>Log in</a>");
+                    model.addAttribute("exitReg", "<a href='./reg'>Register</a>");
                 } else {
                     model.addAttribute("authMsg", "Hello," + user.getSummonerName() + "!");
-                    model.addAttribute("exitReg", "<a href='../auth/exit'>Exit</a>");
-                    model.addAttribute("createbuild", "<li><a href='../add' style='color: #deff00;'>Create Build</a></li>");
+                    model.addAttribute("exitReg", "<a href='./auth/exit'>Exit</a>");
+                    model.addAttribute("createbuild", "<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
                 }
             } catch (NullPointerException ex) {
-                resp.sendRedirect("../");
+                resp.sendRedirect("/");
             }
 
             return "build";
         } else {
             System.out.println("param--" + p);
-            resp.sendRedirect("../");
+            resp.sendRedirect("./");
 
         }
 

@@ -12,8 +12,8 @@
     <head>
         <title>Builds</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../res/styles/style.css">
-        <script type="text/javascript" src="../res/js/jquery-2.1.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./res/styles/style.css">
+        <script type="text/javascript" src="./res/js/jquery-2.1.1.min.js"></script>
     </head>
     <body>
         <div class="middleblock">
@@ -22,7 +22,7 @@
                 <div style="display: table-row;">
                     <div class="inheader">
                         <div class="sitename_block">
-                            <a href="./" style="text-decoration: none; color: #fff;"><img src="../res/img/genius1.png" style="width: 186px; height: 128px; text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
+                            <a href="./" style="text-decoration: none; color: #fff;"><img src="./res/img/genius1.png" style="width: 186px; height: 128px; text-align:left; float: left;"><div style="padding-top: 35px; margin-left: 138px; font-size: 40px;" class="sitename"><b>Smart-builds</b></div></a>
                         </div>
                         <div class="statusbar">
                             <div class="notifbar">
@@ -34,11 +34,11 @@
                                 </div>
                                 <div class="menubar">
                                     <ul>
-                                        <li><a href="../">Main Page</a></li>
+                                        <li><a href="/">Main Page</a></li>
                                             ${createbuild}
-                                        <li><a href="../builds">Builds</a></li>
-                                        <li><a href="../contacts">Contacts</a></li>
-                                        <li><a href="../about">About</a></li>
+                                        <li><a href="./builds">Builds</a></li>
+                                        <li><a href="./contacts">Contacts</a></li>
+                                        <li><a href="./about">About</a></li>
                                     </ul>
                                 </div> 
                             </div>
@@ -53,7 +53,7 @@
                     <form name="f1" method="GET">
                         <div class="additional_stuff_s"><span>Search field</span></div>
                         <div class="center_container">
-                            <!-- <p><input name="guide_name" id="guide_name" class="guide_name_s" type="text" value="Search request../res."></p> -->
+                            <!-- <p><input name="guide_name" id="guide_name" class="guide_name_s" type="text" value="Search request./res."></p> -->
                             <div class="container_cmp">
                                 <select id="champion" class="champion_s" name="champion">
                                     <option>Any</option>
@@ -135,7 +135,7 @@
                                 <tr style="background-color: rgba(60,200,60,0.2);">
                                     <td class="build_bk_img" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/5.15.1/img/champion/${build.champion.keyChamp}.png);"></td>
                                     <td class="build_bk_inf_l" style="">
-                                        <div class="bld_bk_name"><a href="./build?id=${build.id}">${build.name}</a></div>
+                                        <div class="bld_bk_name"><a href="/build?id=${build.id}">${build.name}</a></div>
                                         <div class="bld_bk_auth" style="">created by <a href="">${build.user.summonerName}</a> ${build.user.tier} <b>Lane:</b> ${build.lane} <b>Role:</b> ${build.role} <b>Build type:</b> ${build.type}</div>
                                     </td>
                                     <td class="build_bk_inf_r" style="">
@@ -158,16 +158,16 @@
         <ul>
             <li>
                 <p class="home">Home</p>
-                <div style="display: block; width: 222px; text-align: center;"><img src="../res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
+                <div style="display: block; width: 222px; text-align: center;"><img src="./res/img/riot.png" style="width: 100px; height: 65px;"><div style="text-align: center;">Riot Games inc.</div><div class="clr"></div></div>
                 <div style="display: block;"><a class="logo" href="./">Smart-builds <i>&copy; 2015</i></a></div>
             </li>
             <li>
                 <p class="services">Menu</p>
                 <ul>
-                    <li><a href="../">Main Page</a></li>
-                    <li><a href="../builds">Builds</a></li>
-                    <li><a href="../contacts">Contacts</a></li>
-                    <li><a href="../about">About</a></li>
+                    <li><a href="./">Main Page</a></li>
+                    <li><a href="./builds">Builds</a></li>
+                    <li><a href="./contacts">Contacts</a></li>
+                    <li><a href="./about">About</a></li>
                 </ul>
             </li>
             <li>
@@ -187,7 +187,7 @@
     </div>
         <!-- END OF FOOTER -->
 
-        <script type="text/javascript" src="../res/js/main.js"></script>
+        <script type="text/javascript" src="./res/js/main.js"></script>
         <script>
             $(".bld_bk_sc").hover(function () {
                 y = $(this).attr("id");

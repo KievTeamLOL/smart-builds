@@ -53,11 +53,11 @@ public class AddController {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            resp.sendRedirect("../");
+            resp.sendRedirect("./");
         } else {
             model.addAttribute("authMsg", "Hello," + user.getSummonerName() + "!");
-            model.addAttribute("exitReg", "<a href='../auth/exit'>Exit</a>");
-            model.addAttribute("createbuild", "<li><a href='../add' style='color: #deff00;'>Create Build</a></li>");
+            model.addAttribute("exitReg", "<a href='./auth/exit'>Exit</a>");
+            model.addAttribute("createbuild", "<li><a href='./add' style='color: #deff00;'>Create Build</a></li>");
         }
         Build build = new Build();
         build.setName("Build name");
@@ -95,7 +95,7 @@ public class AddController {
         System.out.println("Type:" + build.getType());
         System.out.println("BLOCKS" + build.getBlocks());
 
-        resp.sendRedirect("../build?id=" + build_new.getId());
+        resp.sendRedirect("./build?id=" + build_new.getId());
 
         List<Category> categories = categoryDAO.listCategories();
         model.addAttribute("categories", categories);
